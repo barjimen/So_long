@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:36:24 by barjimen          #+#    #+#             */
-/*   Updated: 2024/04/25 21:47:23 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/04/25 21:56:51 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main(void)
 {
+    printf("hola");
     /*void    *mlx;
     mlx = mlx_init();
     if(!mlx)
