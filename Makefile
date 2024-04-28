@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 20:29:52 by barjimen          #+#    #+#              #
-#    Updated: 2024/04/25 21:57:17 by barjimen         ###   ########.fr        #
+#    Updated: 2024/04/28 20:47:11 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,4 +101,4 @@ norminette:
 			@norminette $(INC_DIR) | grep -v Norme -B1 || true
 
 PHONY: all makelibs bone clean fclean re norminette
-	
+
