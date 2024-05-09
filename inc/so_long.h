@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <mlx.h>
+# include "../mlx/mlx.h"
+# include <X11/keysym.h>
 # include <fcntl.h>
 # include <signal.h>
 # include <stdio.h>

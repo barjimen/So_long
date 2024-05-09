@@ -29,10 +29,9 @@
 #--- Compile
 
 	cc			:=		gcc
-	CFLAGS		:=		-g -Wall -Wextra -Werror
+	CFLAGS		:=		-g -Wall -Wextra -Werror 
 	HEADER		:=		-I$(INC_DIR) -I$(LFT_DIR) -I$(MLX_DIR)
-	OPENGL		:=		-framework OpenGL -framework AppKit
-	MLXCC		:=		-I mlx -L $(MLX_DIR) -lmlx
+	MLXCC		:=		-I mlx -L $(MLX_DIR) -lmlx -lXext -lX11
 
 #--- .a LIBFT
 
@@ -68,7 +67,7 @@ makelibs:
 
 -include	${DEPS}
 $(NAME):	$(OBJ)
-			@$(CC) $(CFLAGS) $(OBJ) $(MLXCC) $(LIBFT) $(OPENGL) -o $(NAME) 
+			@$(CC) $(CFLAGS) $(OBJ) $(MLXCC) $(LIBFT) -o $(NAME) 
 
 bonus:
 			@$(MAKE)	all

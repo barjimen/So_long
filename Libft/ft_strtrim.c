@@ -14,10 +14,8 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	a;
 	size_t	b;
 
-	a = 0;
 	if (!s1)
 		return (NULL);
 	while (*s1 && ft_strchr(set, *s1))
