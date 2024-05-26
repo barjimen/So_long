@@ -25,3 +25,10 @@ typedef struct base
 	void		*win_ptr; // MLX window pointer
 	void		*textures[5]; // MLX image pointers (on the stack)
 }	t_data;
+
+typedef struct s_so_long
+{
+	char		**map;
+	t_data 		mlx_data;
+	
+}	t_so_long;
