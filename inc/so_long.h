@@ -6,11 +6,12 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/04/28 20:49:30 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/05/27 22:36:30 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../mlx/mlx.h"
+# include "../Libft/libft.h"
 # include <X11/keysym.h>
 # include <fcntl.h>
 # include <signal.h>
@@ -32,3 +33,6 @@ typedef struct s_so_long
 	t_data 		mlx_data;
 	
 }	t_so_long;
+
+
+void	arg_handler(int argc, char **argv, char ***map);

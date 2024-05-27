@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 20:29:52 by barjimen          #+#    #+#              #
-#    Updated: 2024/04/28 20:47:11 by barjimen         ###   ########.fr        #
+#    Updated: 2024/05/27 20:57:02 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@
 
 	cc			:=		gcc
 	CFLAGS		:=		-g -Wall -Wextra -Werror 
-	HEADER		:=		-I$(INC_DIR) -I$(LFT_DIR) -I$(MLX_DIR)
+	HEADER		:=		-I$(INC_DIR) -I$(LFT_DIR) -I$(MLX_DIR) 
 	MLXCC		:=		-I mlx -L $(MLX_DIR) -lmlx -lXext -lX11
 
 #--- .a LIBFT
@@ -40,7 +40,8 @@
 
 #--- .C
 	
-	SRC_FILES	:=		main  \
+	SRC_FILES	:=		main  		\
+						arg_handler \
 
 #--- File variables
 

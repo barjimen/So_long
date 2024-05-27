@@ -46,6 +46,7 @@ FILE_C =	ft_isalpha.c	\
 			ft_itoa.c		\
 			ft_strtrim.c	\
 			ft_split.c		\
+			get_next_line.c	\
 
 FILE_C_BONUS =	ft_lstnew_bonus.c		\
 				ft_lstadd_front_bonus.c	\
