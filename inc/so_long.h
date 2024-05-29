@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/05/27 22:36:30 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/05/29 20:53:42 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,4 @@ typedef struct s_so_long
 }	t_so_long;
 
 
-void	arg_handler(int argc, char **argv, char ***map);
+char	**arg_handler(int argc, char **argv, char **map);

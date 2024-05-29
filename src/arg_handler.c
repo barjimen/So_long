@@ -6,13 +6,13 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:39:33 by barjimen          #+#    #+#             */
-/*   Updated: 2024/05/27 22:36:51 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/05/29 20:53:17 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void save_map(int fd, char ***map)
+char **save_map(int fd, char **map)
 {
 	//char 	**map;
 	char	*row;
@@ -20,19 +20,23 @@ void save_map(int fd, char ***map)
 	
 	i = 0;
 	//map = NULL;
-	map = ft_calloc(100, sizeof(char *));
+	
+	map = ft_calloc(10 , sizeof(char *));
 	row = get_next_line(fd);
+	//printf("el fd es: %s \n", row);
+	//printf("el i es despues: %d \n", i);
 	while (row != NULL)
 	{
 		if (i > 99)
 			exit(1);
-		map[i] = &row;
-		free(row);
+		map[i] = row;
 		row = get_next_line(fd);
+		printf("el fd es despues: %s \n", map[i]);
 		i++;
 	}
+	printf("el mapita es aqui: %s\n", map[i]);
 	free(row);
-	i = 0;
+	return map;
 }
 
 int	its_ber(char *argv)
@@ -47,7 +51,7 @@ int	its_ber(char *argv)
 		&& (argv[i - 3] == 'b') && (argv[i - 4] == '.'));
 }
 
-void arg_handler(int argc, char **argv, char ***map)
+char	**arg_handler(int argc, char **argv, char **map)
 {
 	int fd;
 	
@@ -59,6 +63,8 @@ void arg_handler(int argc, char **argv, char ***map)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		exit(1);
-	save_map(fd, map);
+	map = save_map(fd, map);
+	printf("el mapita es pp: %s\n", map[1]);
 	close(fd);
+	return (map);
 }
