@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:13:57 by barjimen          #+#    #+#             */
-/*   Updated: 2024/05/30 21:37:47 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/05 00:03:05 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void is_walled(char **map, int width, int height)
 		{
 			if (map[i][j] != '1' && (i == 0 || j == 0 || i == height - 1 || j == width - 1))
 				printf("no es 1\n");
+			if (map[i][j] != '1'&& map[i][j] != '0' && map[i][j] != 'C' && map[i][j] != 'E' && map[i][j] != 'P')
+				exit(1);//para salir si en algun caso es diferente de cualquiera de los char que necesito :)
 			j++;
 		}
 		j = 0;
@@ -77,6 +79,8 @@ char *map_check(char **map)
 	if ((width == 3 && height < 5) || (height == 3 && width < 5)) //ya que no seria un mapa valido (no caben P, C y E)
 		exit(1);
 	is_walled(map, width, height);
-	printf("ancho mide %d; altura mide %d\n", width, height);
+	//printf("ancho mide %d; altura mide %d\n", width, height);
+	is_char(map, width, height);
+	
 	return (0);
 }
