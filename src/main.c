@@ -18,30 +18,28 @@ int handle_no_event(void *data)
 	return (0);
 }
 
+int window_killer(t_data *data)
+{
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	exit(0);
+}
+
 int handle_input(int keysnm, t_data *data)
 {
-	if(keysnm == XK_Escape)
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	(void)data;
+	//printf("Keycode es: %i\n", keysnm);
+	if (keysnm == 65307)
+		window_killer(data);
 	return (0);
 }
 
 int main(void)
 {
 	t_data data;
-    //void *mlx_ptr;
-	//void *win_ptr;
  
 	data.mlx_ptr = mlx_init();
-	if (!data.mlx_ptr)
-		return (1);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, 600, 400, "hi :)");
-	if (!data.win_ptr)
-		return (free(data.mlx_ptr), 1);
-
-	mlx_loop_hook(data.mlx_ptr, &handle_no_event, &data);
-	mlx_key_hook(data.mlx_ptr, &handle_input, &data);
+	data.win_ptr = mlx_new_window(data.mlx_ptr, 1920, 1080, "hi :)");
+	mlx_key_hook(data.win_ptr, handle_input, &data);
+	mlx_hook(data.win_ptr, 17, 0, window_killer, &data);
 	mlx_loop(data.mlx_ptr);
-	mlx_destroy_display(data.mlx_ptr);
-	free(data.mlx_ptr);
-	return (0);
 }
