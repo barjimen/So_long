@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 20:29:52 by barjimen          #+#    #+#              #
-#    Updated: 2024/05/29 20:44:40 by barjimen         ###   ########.fr        #
+#    Updated: 2024/05/30 17:59:43 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,8 @@
 	
 	SRC_FILES	:=		main  		\
 						arg_handler \
+						map_checker \
+						
 
 #--- File variables
 
