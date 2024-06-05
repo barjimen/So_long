@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:26:01 by barjimen          #+#    #+#             */
-/*   Updated: 2024/05/27 22:37:38 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/05/29 20:55:53 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,18 @@
 int main(int argc, char **argv)
 {
     char **mapita;
-    int i = 0;
+   // int i = 0;
     
     mapita = NULL;
-    arg_handler(argc, argv, &mapita);
+    mapita = arg_handler(argc, argv, mapita);
+     printf("mapita es en main: %s\n", mapita[1]);
+    //if (mapita)
+        //printf("mapita 0 es: %s", mapita[0]);
     //while (mapita[i] != NULL)
-	//	printf("%s", mapita[i++]);
+		//("%s", mapita[i++]);
     printf("\nFIN\n");
     //if (map_check(mapa))
     //    exit()
-    //render_map(mapita); 
+    //render_map(mapita);
+    exit(0);
 }

@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 20:29:52 by barjimen          #+#    #+#              #
-#    Updated: 2024/05/27 20:57:02 by barjimen         ###   ########.fr        #
+#    Updated: 2024/05/29 20:44:40 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@
 #--- Compile
 
 	cc			:=		gcc
-	CFLAGS		:=		-g -Wall -Wextra -Werror 
+	CFLAGS		:=		-g -Wall -Wextra -Werror -fsanitize=address
 	HEADER		:=		-I$(INC_DIR) -I$(LFT_DIR) -I$(MLX_DIR) 
 	MLXCC		:=		-I mlx -L $(MLX_DIR) -lmlx -lXext -lX11
 
