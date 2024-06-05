@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:26:01 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/05 22:24:05 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/05 22:49:30 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,5 @@ int main(int argc, char **argv)
 	}
     //render_map(mapita);
     exit(0);
+    //test
 }
