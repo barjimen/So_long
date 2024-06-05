@@ -6,11 +6,67 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 23:31:39 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/04 23:58:31 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/05 22:34:29 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+void	is_valid_p_c(char **map, int width, int height)
+{
+	int h;
+    int w;
+	
+	w = 0;
+	h = 0;
+	while (h < height)
+	{
+		while (w < width)
+		{	
+			if (map[h][w] == 'C')
+				exit(1);//printf("no vale, hay una c :( \n");
+			else if (map[h][w] == 'E')
+				exit(1);//printf("no vale, hay una e :( \n");
+			w++;
+		}
+		w = 0;
+		h++;
+	}
+}
+
+void llenar_de_agua(char **map, int width, int height)
+{
+	map[height][width] = 'P';
+	if (map[height + 1][width] != '1' && map[height + 1][width] != 'P')
+		llenar_de_agua(map, width, height + 1);
+	if (map[height - 1][width] != '1' && map[height - 1][width] != 'P')
+		llenar_de_agua(map, width, height - 1);
+	if (map[height][width + 1] != '1' && map[height][width + 1] != 'P')
+		llenar_de_agua(map, width + 1, height);
+	if (map[height][width - 1] != '1' && map[height][width - 1] != 'P')
+		llenar_de_agua(map, width - 1, height);
+}
+int is_map_valid(char **map,int width, int height)
+{
+	static int h;
+    static int w;
+	
+	while (h < height)
+	{
+		while (w < width)
+		{	
+			if (map[h][w] == 'P')
+			{
+				llenar_de_agua(map, w, h);
+			}
+			w++;
+		}
+		w = 0;
+		h++;
+	}
+	is_valid_p_c(map, width, height);
+	return(0);
+}
 
 void is_char(char **map,int width, int height)
 {

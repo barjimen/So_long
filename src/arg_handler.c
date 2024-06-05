@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:39:33 by barjimen          #+#    #+#             */
-/*   Updated: 2024/05/30 18:15:26 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/05 22:21:30 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,21 @@ char	**arg_handler(int argc, char **argv, char **map)
 		exit(1);
 	if (!its_ber(argv[1]))
 		exit(1); //si no es .ber
+	
+	
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0) //si el fd no existe
 		exit(1);
 	map = save_map(fd, map);
-	//printf("el mapita es pp: %s\n", map[1]);
 	close(fd);
+
+	
+	/*fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+		exit(1);
+	map_copy = save_map(fd, map_copy);
+	close(fd);*/
+
+	
 	return (map);
 }
