@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:13:57 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/05 00:03:05 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/05 22:19:28 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,7 @@ char *map_check(char **map)
 	//printf("ancho mide %d; altura mide %d\n", width, height);
 	is_char(map, width, height);
 	
+	//is_map_valid(map_copy, width, height);
+	is_map_valid(map, width, height);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/04 23:33:35 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/05 22:21:46 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,4 @@ typedef struct s_so_long
 char	**arg_handler(int argc, char **argv, char **map);
 char	*map_check(char **map);
 void	is_char(char **map, int width, int height);
+int	is_map_valid(char **map, int width, int height);
