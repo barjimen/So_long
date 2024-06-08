@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/08 23:39:36 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/09 00:10:04 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,28 @@
 # include <string.h>
 # include <unistd.h>
 
-typedef struct base
+typedef struct s_data
 {
 	void		*mlx_ptr; // MLX pointer
 	void		*win_ptr; // MLX window pointer
 	void		*textures[5]; // MLX image pointers (on the stack)
-	//t_map		*map; --preguntar--
+	//t_so_long		*map; --preguntar--
 }	t_data;
 
-/*typedef struct s_so_long
+typedef struct s_so_long
 {
 	char		**map;
+	
 	t_data 		mlx_data;
 	
-}	t_so_long;*/
+}	t_so_long;
 
 
 char	**arg_handler(int argc, char **argv, char **map);
 char	*map_check(char **map);
 void	is_char(char **map, int width, int height);
 int		is_map_valid(char **map, int width, int height);
-void	render_map(char **map);
+void	render_map(t_so_long    *so_long);
 
 
 //-- Window and other things

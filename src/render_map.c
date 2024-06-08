@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:10:40 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/08 23:48:50 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/09 00:10:50 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,10 @@ int	key_hook(int keycode, t_data *vars)
 	return (0);
 }
 
-void    render_map(char **map)
+void    render_map(t_so_long    *so_long)
 {
-    (void)map;
-    t_data	vars;
-
-	vars.mlx_ptr = mlx_init();
-	vars.win_ptr = mlx_new_window(vars.mlx_ptr, 640, 480, "Hello world!");
-	mlx_key_hook(vars.win_ptr, key_hook, &vars);
-	mlx_loop(vars.mlx_ptr);
+	so_long->mlx_data.mlx_ptr = mlx_init();
+	so_long->mlx_data.win_ptr = mlx_new_window(so_long->mlx_data.mlx_ptr, 640, 480, "Hello world!");
+	mlx_key_hook(so_long->mlx_data.win_ptr, key_hook, &so_long);
+	mlx_loop(so_long->mlx_data.mlx_ptr);
 }
