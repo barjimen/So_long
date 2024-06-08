@@ -6,11 +6,17 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 23:31:39 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/05 22:34:29 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/08 20:45:38 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+static int	exit_msg(char *msg)
+{
+	ft_putendl_fd(msg, 2);
+	exit(EXIT_SUCCESS);
+}
 
 void	is_valid_p_c(char **map, int width, int height)
 {
@@ -24,9 +30,9 @@ void	is_valid_p_c(char **map, int width, int height)
 		while (w < width)
 		{	
 			if (map[h][w] == 'C')
-				exit(1);//printf("no vale, hay una c :( \n");
+				exit_msg(C_MSG);//printf("no vale, hay una c :( \n");
 			else if (map[h][w] == 'E')
-				exit(1);//printf("no vale, hay una e :( \n");
+				exit_msg(E_MSG);//printf("no vale, hay una e :( \n");
 			w++;
 		}
 		w = 0;
@@ -92,5 +98,5 @@ void is_char(char **map,int width, int height)
 		h++;
 	}
 	if (c < 1 || p != 1 || e != 1)
-		exit (1);
+		exit_msg(CPE_MSG);
 }
