@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:39:33 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/08 20:45:54 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/09 19:48:15 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char **save_map(int fd, char **map)
 	int		i;
 	
 	i = 0;
-	map = ft_calloc(10 , sizeof(char *));
+	map = ft_calloc(100 , sizeof(char *));
 	row = get_next_line(fd);
 	while (row != NULL)
 	{

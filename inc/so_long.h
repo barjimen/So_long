@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/09 00:10:04 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/09 22:08:28 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,20 @@
 # include <string.h>
 # include <unistd.h>
 
+typedef struct s_img {
+	void	*img;
+	char	*addr;
+	int		bppx;
+	int		line_length;
+	int		endian;
+}				t_img;
+
 typedef struct s_data
 {
 	void		*mlx_ptr; // MLX pointer
 	void		*win_ptr; // MLX window pointer
 	void		*textures[5]; // MLX image pointers (on the stack)
+	t_img		img;
 	//t_so_long		*map; --preguntar--
 }	t_data;
 
@@ -67,5 +76,7 @@ void	render_map(t_so_long    *so_long);
 # define CPE_MSG "C,P or E error!"
 # define C_MSG "Can't reach C!"
 # define E_MSG "Can't reach E!"
+//-- Close window --
+# define C_WINDOW "Bye!"
 
 #endif

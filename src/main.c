@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:26:01 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/09 00:06:39 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/09 22:08:45 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
   t_so_long so_long;
   char **mapita;
   char **mapita_copy;
-  int h = 0;
+  //int h = 0;
     
   mapita = NULL;
   mapita_copy = NULL;
@@ -27,12 +27,12 @@ int main(int argc, char **argv)
   if (map_check(mapita_copy))
     exit(1);
   so_long.map = mapita;
-  printf("ESTE ES EL MAPA A IMPRIMIR\n");
-	while (mapita[h])
+  //printf("ESTE ES EL MAPA A IMPRIMIR\n");
+	/*while (mapita[h])
 	{
 		printf("%s", mapita[h]);
 		h++;
-	}
+	}*/
   render_map(&so_long);
   exit(0);
 }
