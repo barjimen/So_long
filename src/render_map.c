@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:10:40 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/09 22:08:24 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/10 23:19:27 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void    render_map(t_so_long    *so_long)
 	path = "./img/New-Project.xpm";
 
 	so_long->mlx_data.mlx_ptr = mlx_init();
-	so_long->mlx_data.win_ptr = mlx_new_window(so_long->mlx_data.mlx_ptr, 640, 480, "Hello world!");
+	so_long->mlx_data.win_ptr = mlx_new_window(so_long->mlx_data.mlx_ptr, 1920, 1080, "Hello world!");
 	//so_long->mlx_data.img.img = mlx_new_image(so_long->mlx_data.mlx_ptr, 640,480);
 	img = mlx_xpm_to_image(so_long->mlx_data.mlx_ptr, &path, &h, &w);
-	mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,so_long->mlx_data.win_ptr, img, 0, 0);
+	mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,so_long->mlx_data.win_ptr, img, 0, 0); //error :(
 	mlx_key_hook(so_long->mlx_data.win_ptr, key_hook, &so_long->mlx_data);
 	mlx_hook(so_long->mlx_data.win_ptr, 17, 0 , close_w, &so_long->mlx_data);
 	mlx_loop(so_long->mlx_data.mlx_ptr);
