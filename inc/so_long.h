@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/11 22:32:31 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/11 23:42:47 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int		height_map(char **map);
 # define MAP_H_KO "Height not valid!"
 # define MAP_W_KO "Width not valid!"
 # define MAP_LENGHT_KO "Different lenght lines!"
+# define IMG_KO "Image does's exist!"
 //-- Map checker error msg --
 # define CPE_MSG "C,P or E error!"
 # define C_MSG "Can't reach C!"
