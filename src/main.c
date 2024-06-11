@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:26:01 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/09 22:08:45 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/11 22:26:07 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main(int argc, char **argv)
   if (map_check(mapita_copy))
     exit(1);
   so_long.map = mapita;
+
   //printf("ESTE ES EL MAPA A IMPRIMIR\n");
 	/*while (mapita[h])
 	{

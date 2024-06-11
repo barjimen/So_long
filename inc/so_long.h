@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/09 22:08:28 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/11 22:32:31 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ typedef struct s_data
 typedef struct s_so_long
 {
 	char		**map;
+	int			map_h;
+	int 		map_w;
 	
 	t_data 		mlx_data;
 	
@@ -55,6 +57,8 @@ char	*map_check(char **map);
 void	is_char(char **map, int width, int height);
 int		is_map_valid(char **map, int width, int height);
 void	render_map(t_so_long    *so_long);
+int 	length_map(char **map);
+int		height_map(char **map);
 
 
 //-- Window and other things
