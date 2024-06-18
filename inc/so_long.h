@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/11 23:42:47 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/18 21:01:52 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		is_map_valid(char **map, int width, int height);
 void	render_map(t_so_long    *so_long);
 int 	length_map(char **map);
 int		height_map(char **map);
-
+void	paint_map(int width, int height, char *img, t_so_long *so_long);
 
 //-- Window and other things
 

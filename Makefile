@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 20:29:52 by barjimen          #+#    #+#              #
-#    Updated: 2024/06/08 23:38:38 by barjimen         ###   ########.fr        #
+#    Updated: 2024/06/18 20:59:54 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@
 						map_checker 	 	\
 						map_checker_char	\
 						render_map			\
+						paint_map			\
 						
 
 #--- File variables

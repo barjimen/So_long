@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:10:40 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/11 23:44:14 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/18 21:01:59 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,7 @@ void create_map(t_so_long *so_long)
 	img = mlx_xpm_file_to_image(so_long->mlx_data.mlx_ptr, path, &h, &w);
 	if (img == NULL)
 		exit_msg(IMG_KO);
-	while (he)
-	{
-		while (we)
-		{
-			mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,so_long->mlx_data.win_ptr, img, we * 50, he * 50);
-			we--;
-		}
-		we = length_map(so_long->map);
-		he--;
-	}
+	paint_map(we, he, img, so_long);
 	mlx_destroy_image(so_long->mlx_data.mlx_ptr, img);
 
 }
