@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 20:56:41 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/18 22:11:34 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/19 22:29:33 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ void paint_map(int width, int height, char *img, t_so_long *so_long)
 		{
             if(so_long->map[height - 1][width - 1] != '1')
                 mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,so_long->mlx_data.win_ptr, floor, width * 50, height * 50);
-            else
+            else if (so_long->map[height - 1][width - 1] != '0')
 			    mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,so_long->mlx_data.win_ptr, img, width * 50, height * 50);
 			if(so_long->map[height - 1][width - 1] != '0' && so_long->map[height - 1][width - 1] != '1')
+                mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,so_long->mlx_data.win_ptr, p, width * 50, height * 50);
+            if(so_long->map[height - 1][width - 1] == 'P')
                 mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,so_long->mlx_data.win_ptr, p, width * 50, height * 50);
             width--;
 		}
