@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/19 21:57:02 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/24 21:47:01 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_img {
 	int		bppx;
 	int		line_length;
 	int		endian;
+	int     width;
+    int     height;
 }				t_img;
 
 typedef struct s_data
@@ -38,6 +40,8 @@ typedef struct s_data
 	void		*win_ptr; // MLX window pointer
 	void		*textures[10]; // MLX image pointers (on the stack)
 	t_img		img;
+	t_img		img1;
+	t_img		img2;
 	//t_so_long		*map; --preguntar--
 }	t_data;
 
