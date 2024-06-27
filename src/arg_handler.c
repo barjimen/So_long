@@ -6,65 +6,60 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:39:33 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/09 19:48:15 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/28 00:47:30 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-static int	exit_msg(char *msg)
+int file_lines(char *path)
 {
-	ft_putendl_fd(msg, 2);
-	exit(EXIT_SUCCESS);
-}
-
-char **save_map(int fd, char **map)
-{
-	char	*row;
-	int		i;
+	int fd;
+	char *row;
+	int i;
 	
 	i = 0;
-	map = ft_calloc(100 , sizeof(char *));
+	fd = open(path, O_RDONLY);
+	if (fd < 0) //si el fd no existe
+		exit_msg(FD_0);
 	row = get_next_line(fd);
 	while (row != NULL)
 	{
-		if (i > 99)
-			exit(1);
-		map[i] = row;
+		free(row);
 		row = get_next_line(fd);
-		//printf("el fd es despues: %s \n", map[i]);
 		i++;
 	}
-	//printf("el mapita es aqui: %s\n", map[i]);
-	free(row);
-	return (map);
+	close(fd);
+	return (i);
 }
-
-int	its_ber(char *argv)
+char **load_map(char *path)
 {
-	int	i;
+	int 	fd;
+	char	*row;
+	int		i;
+	char 	**map;
 
 	i = 0;
-	i = ft_strlen(argv);
-	if (i < 5)
-		return (0);
-	return ((argv[i - 1] == 'r') && (argv[i - 2] == 'e')
-		&& (argv[i - 3] == 'b') && (argv[i - 4] == '.'));
-}
-
-char	**arg_handler(int argc, char **argv, char **map)
-{
-	int fd;
-	
-	
-	if (argc != 2)
-		exit_msg(ARG_KO);
-	if (!its_ber(argv[1]))
-		exit_msg(NOT_BER); //si no es .ber
-	fd = open(argv[1], O_RDONLY);
+	map = ft_calloc(file_lines(path) + 1 , sizeof(char *));
+	fd = open(path, O_RDONLY);
 	if (fd < 0) //si el fd no existe
 		exit_msg(FD_0);
-	map = save_map(fd, map);
+	row = get_next_line(fd);
+	while (row != NULL)
+	{
+		map[i] = row;
+		row = get_next_line(fd);
+		i++;
+	}
+	map[i] = NULL;
 	close(fd);
 	return (map);
+}
+
+void	arg_handler(int argc, char **argv)
+{
+	if (argc != 2)
+		exit_msg(ARG_KO);
+	if (!ft_str_end_with(argv[1], ".ber"))
+		exit_msg(NOT_BER);
 }

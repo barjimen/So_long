@@ -6,39 +6,11 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 23:31:39 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/08 20:45:38 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/28 01:23:27 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-
-static int	exit_msg(char *msg)
-{
-	ft_putendl_fd(msg, 2);
-	exit(EXIT_SUCCESS);
-}
-
-void	is_valid_p_c(char **map, int width, int height)
-{
-	int h;
-    int w;
-	
-	w = 0;
-	h = 0;
-	while (h < height)
-	{
-		while (w < width)
-		{	
-			if (map[h][w] == 'C')
-				exit_msg(C_MSG);//printf("no vale, hay una c :( \n");
-			else if (map[h][w] == 'E')
-				exit_msg(E_MSG);//printf("no vale, hay una e :( \n");
-			w++;
-		}
-		w = 0;
-		h++;
-	}
-}
 
 void llenar_de_agua(char **map, int width, int height)
 {
@@ -52,51 +24,55 @@ void llenar_de_agua(char **map, int width, int height)
 	if (map[height][width - 1] != '1' && map[height][width - 1] != 'P')
 		llenar_de_agua(map, width - 1, height);
 }
-int is_map_valid(char **map,int width, int height)
+void is_map_valid(void *data, int x, int y)
 {
-	static int h;
-    static int w;
-	
-	while (h < height)
+	t_so_long	*so_long;
+
+	so_long = (t_so_long *)data;
+	if (so_long->map[y][x] == 'P')
 	{
-		while (w < width)
-		{	
-			if (map[h][w] == 'P')
-			{
-				llenar_de_agua(map, w, h);
-			}
-			w++;
-		}
-		w = 0;
-		h++;
+		llenar_de_agua(so_long->map, x, y);
 	}
-	is_valid_p_c(map, width, height);
-	return(0);
 }
 
-void is_char(char **map,int width, int height)
+void is_valid_p_c(void *data, int x, int y)
 {
-	static int c;
-	static int e;
-	static int p;
-    static int h;
-    static int w;
+	t_so_long	*so_long;
+
+	so_long = (t_so_long *)data;
+	if (so_long->map[y][x] == 'C')
+		exit_msg(C_MSG);//printf("no vale, hay una c :( \n");
+	else if (so_long->map[y][x] == 'E')
+		exit_msg(E_MSG);//printf("no vale, hay una e :( \n");
+}
+
+void is_char(void *data, int x, int y)
+{
+	t_so_long	*so_long;
+
+	so_long = (t_so_long *)data;
+	if (so_long->map[y][x] == 'C')
+		so_long->maps.c++;
+	else if (so_long->map[y][x] == 'P')
+		so_long->maps.p++;
+	else if (so_long->map[y][x] == 'E')
+		so_long->maps.e++;
+}
+
+void map_iter_context(char **map, void (*f)(void *, int x, int y), void *data)
+{
+	int x;
+    int y;
 	
-	while (h < height)
+	y = 0;
+	while (map[y])
 	{
-		while (w < width)
+		x = 0;
+		while (map[y][x])
 		{	
-			if (map[h][w] == 'C')
-				c++;
-			else if (map[h][w] == 'P')
-				p++;
-			else if (map[h][w] == 'E')
-				e++;
-			w++;
+			f(data, x, y);
+			x++;
 		}
-		w = 0;
-		h++;
+		y++;
 	}
-	if (c < 1 || p != 1 || e != 1)
-		exit_msg(CPE_MSG);
 }
