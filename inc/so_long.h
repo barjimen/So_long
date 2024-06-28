@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/28 01:23:52 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/28 21:13:48 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct s_so_long
 	char		**map;
 	int			map_h;
 	int 		map_w;
+	
 	
 	t_map		maps;
 	t_player	player;
