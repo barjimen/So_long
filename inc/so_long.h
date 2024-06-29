@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/28 21:13:48 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/06/30 00:36:55 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,9 +112,16 @@ int	ft_str_end_with(const char *str, const char *end);
 
 //-- Window and other things
 
-# define W_SIZE 1920
+# define W_SIZE 2500
 # define H_SIZE 1080
 
+//-- Isometric sprites
+# define sprites_x 32-(32*j)
+# define sprites_y 16+(16*i)
+# define w_position (W_SIZE/2 - so_long->map_w/2)
+# define h_position (H_SIZE/4 - so_long->map_h/2)
+# define player_y 16
+# define player_x 32-(32*j)
 
 //-- Error msg --
 # define FD_0 "FD error!"
