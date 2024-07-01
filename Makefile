@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 20:29:52 by barjimen          #+#    #+#              #
-#    Updated: 2024/06/28 00:36:29 by barjimen         ###   ########.fr        #
+#    Updated: 2024/07/01 21:38:56 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,10 @@
 						map_checker 	 	\
 						map_checker_char	\
 						render_map			\
-						paint_map			\
 						image				\
 						hooks				\
 						ft_str_end_with		\
+						move_handler		\
 						
 						
 

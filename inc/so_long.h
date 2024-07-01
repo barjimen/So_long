@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/30 00:36:55 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/01 21:53:19 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_data
 
 typedef struct s_player
 {
+	int pos;
 	int x;
 	int y;
 } t_player;
@@ -68,6 +69,13 @@ typedef struct s_map
 	int height;
 } t_map;
 
+typedef struct s_move
+{
+	int player_pos;
+	int	collect_num;
+} t_move;
+
+
 typedef struct s_so_long
 {
 	char		**map;
@@ -78,6 +86,7 @@ typedef struct s_so_long
 	t_map		maps;
 	t_player	player;
 	t_data 		mlx_data;
+	t_move		count;
 	
 }	t_so_long;
 
@@ -106,6 +115,7 @@ t_img			load_xpm(void *mlx, char *path);
 int	exit_msg(char *msg);
 int close_w(t_data *mlx);
 int	key_hook(int keycode, t_data *mlx);
+void move_handler(int keycode, t_so_long so_long);
 
 // To library
 int	ft_str_end_with(const char *str, const char *end);
@@ -114,14 +124,6 @@ int	ft_str_end_with(const char *str, const char *end);
 
 # define W_SIZE 2500
 # define H_SIZE 1080
-
-//-- Isometric sprites
-# define sprites_x 32-(32*j)
-# define sprites_y 16+(16*i)
-# define w_position (W_SIZE/2 - so_long->map_w/2)
-# define h_position (H_SIZE/4 - so_long->map_h/2)
-# define player_y 16
-# define player_x 32-(32*j)
 
 //-- Error msg --
 # define FD_0 "FD error!"

@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.c                                            :+:      :+:    :+:   */
+/*   move_handler.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/01 22:04:42 by barjimen         ###   ########.fr       */
+/*   Created: 2024/07/01 21:38:45 by barjimen          #+#    #+#             */
+/*   Updated: 2024/07/01 22:05:28 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int	exit_msg(char *msg)
+int keycode_handler(int keycode,t_so_long so_long)
 {
-	ft_putendl_fd(msg, 2);
-	exit(EXIT_SUCCESS);
+    if (keycode == 65362)
+        printf("felcha arriba\n");
+    else if (keycode == 65364)
+        printf("felcha abajo\n");
+    else if (keycode == 65363)
+        printf("felcha drch\n");
+    else if (keycode == 65361)
+        printf("felcha izq\n");
+    
+    return (0);
 }
 
-int close_w(t_data *mlx)
+void move_handler(int keycode, t_so_long so_long)
 {
-	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
-	exit_msg(C_WINDOW);
-	return (0);
-}
-int	key_hook(int keycode, t_data *mlx)
-{
-	t_so_long so_long;
-	if (keycode == XK_Escape)
-	{
-		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
-		exit(0);
-	}
-	move_handler(keycode, so_long);
-	
-	return (0);
+    keycode_handler(keycode, so_long);
 }
