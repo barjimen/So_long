@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:13:57 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/28 20:15:21 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/03 20:34:53 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char *map_check(t_so_long *so_long)
 	if (so_long->maps.c < 1 || so_long->maps.p != 1 || so_long->maps.e != 1)
 		exit_msg(CPE_MSG);
 	map_iter_context(so_long->map, is_map_valid, so_long);
-	map_iter_context(so_long->map, is_valid_p_c, so_long);
+	map_iter_context(so_long->map, is_valid_e_c, so_long);
 	so_long->map_h = height;
 	so_long->map_w = width;
 	return (0);

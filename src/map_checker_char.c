@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 23:31:39 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/29 23:34:59 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/03 22:21:04 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void is_map_valid(void *data, int x, int y)
 	}
 }
 
-void is_valid_p_c(void *data, int x, int y)
+void is_valid_e_c(void *data, int x, int y)
 {
 	t_so_long	*so_long;
 
@@ -54,7 +54,13 @@ void is_char(void *data, int x, int y)
 	if (so_long->map[y][x] == 'C')
 		so_long->maps.c++;
 	else if (so_long->map[y][x] == 'P')
+	{
 		so_long->maps.p++;
+		so_long->player.player_moves = 0;
+		so_long->player.x = x;
+		so_long->player.y = y;
+	}
+		
 	else if (so_long->map[y][x] == 'E')
 		so_long->maps.e++;
 }
@@ -75,4 +81,10 @@ void map_iter_context(char **map, void (*f)(void *, int x, int y), void *data)
 		}
 		y++;
 	}
+}
+
+void item_removed(t_so_long	*so_long)
+{
+	if (so_long->map[so_long->player.y][so_long->player.x] == 'C')
+		so_long->map[so_long->player.y][so_long->player.x] = '0';
 }

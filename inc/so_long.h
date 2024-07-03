@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/01 21:53:19 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/03 22:21:20 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ typedef struct s_data
 
 typedef struct s_player
 {
-	int pos;
 	int x;
 	int y;
+	int player_moves;
+	int	collect_num;
 } t_player;
 
 typedef struct s_map
@@ -69,13 +70,6 @@ typedef struct s_map
 	int height;
 } t_map;
 
-typedef struct s_move
-{
-	int player_pos;
-	int	collect_num;
-} t_move;
-
-
 typedef struct s_so_long
 {
 	char		**map;
@@ -86,7 +80,6 @@ typedef struct s_so_long
 	t_map		maps;
 	t_player	player;
 	t_data 		mlx_data;
-	t_move		count;
 	
 }	t_so_long;
 
@@ -96,7 +89,7 @@ char	*map_check(t_so_long *so_long);
 void 	map_iter_context(char **map, void (*f)(void *, int x, int y), void *data);
 void 	is_char(void *data, int x, int y);
 void 	is_map_valid(void *data, int x, int y);
-void 	is_valid_p_c(void *data, int x, int y);
+void 	is_valid_e_c(void *data, int x, int y);
 void	render_map(t_so_long    *so_long);
 int 	length_map(char **map);
 int		height_map(char **map);
@@ -111,10 +104,18 @@ unsigned int	get_pixel_img(t_img img, int x, int y);
 void			put_img_to_img(t_img dst, t_img src, int x, int y);
 t_img			load_xpm(void *mlx, char *path);
 
+void	create_background(void	*data, int x, int y);
+void	 item_removed(t_so_long	*so_long);
+void	create_items(void	*data, int x, int y);
+void	create_player(void	*data);
+
+
+
+
 //Hooks
 int	exit_msg(char *msg);
 int close_w(t_data *mlx);
-int	key_hook(int keycode, t_data *mlx);
+int	key_hook(int keycode, t_so_long *so_long);
 void move_handler(int keycode, t_so_long so_long);
 
 // To library
