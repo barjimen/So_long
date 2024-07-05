@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/03 22:21:20 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/05 20:13:49 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ void	create_player(void	*data);
 int	exit_msg(char *msg);
 int close_w(t_data *mlx);
 int	key_hook(int keycode, t_so_long *so_long);
-void move_handler(int keycode, t_so_long so_long);
 
 // To library
 int	ft_str_end_with(const char *str, const char *end);
@@ -142,5 +141,6 @@ int	ft_str_end_with(const char *str, const char *end);
 # define E_MSG "Can't reach E!"
 //-- Close window --
 # define C_WINDOW "Bye!"
+# define WIN 	  "Has ganado!"
 
 #endif
