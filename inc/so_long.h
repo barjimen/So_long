@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/05 20:13:49 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/05 20:55:43 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef enum e_sprites {
 	COLLECT,
 	WALL,
 	EXIT,
+	EXIT_OK,
 	ENEMY
 } t_sprites;
 

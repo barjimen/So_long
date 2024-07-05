@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:10:40 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/03 22:24:35 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/05 20:58:41 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void load_sprites(t_so_long *so_long)
 	so_long->mlx_data.sprites[PLAYER] = load_xpm(so_long->mlx_data.mlx_ptr, "./img/prueba.xpm");
 	so_long->mlx_data.sprites[WALL] = load_xpm(so_long->mlx_data.mlx_ptr, "./img/sea.xpm");
 	so_long->mlx_data.sprites[EXIT] = load_xpm(so_long->mlx_data.mlx_ptr, "./img/exit.xpm");
+	so_long->mlx_data.sprites[EXIT_OK] = load_xpm(so_long->mlx_data.mlx_ptr, "./img/exit_ok.xpm");
 	so_long->mlx_data.sprites[COLLECT] = load_xpm(so_long->mlx_data.mlx_ptr, "./img/collect.xpm");
+	
 }
 
 void	create_background(void	*data, int x, int y)
@@ -47,9 +49,14 @@ void	create_items(void	*data, int x, int y)
 			so_long->mlx_data.sprites[COLLECT],
 			(W_SIZE / 2 - so_long->map_w / 2) + x * 32 - (32 * y),
 			(H_SIZE / 4 - so_long->map_h / 2) + y * 16 + (10 * x));
-	else if (so_long->map[y][x] == 'E')
+	else if (so_long->map[y][x] == 'E' && so_long->player.collect_num != so_long->maps.c)
 		put_img_to_img(so_long->mlx_data.img,
 			so_long->mlx_data.sprites[EXIT],
+			(W_SIZE / 2 - so_long->map_w / 2) + x * 32 - (32 * y),
+			(H_SIZE / 4 - so_long->map_h / 2) + y * 16 + (16 * x));
+	else if (so_long->player.collect_num == so_long->maps.c && so_long->map[y][x] == 'E')
+		put_img_to_img(so_long->mlx_data.img,
+			so_long->mlx_data.sprites[EXIT_OK],
 			(W_SIZE / 2 - so_long->map_w / 2) + x * 32 - (32 * y),
 			(H_SIZE / 4 - so_long->map_h / 2) + y * 16 + (16 * x));
 }

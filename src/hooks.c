@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/05 20:01:22 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/05 21:12:06 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void render_move(t_so_long *so_long)
 {
+	char *moves;
+
 	so_long->player.player_moves++;
 	printf("Se ha movido %d veces\n", so_long->player.player_moves);
 	item_removed(so_long);
@@ -74,6 +76,5 @@ int	key_hook(int keycode, t_so_long *so_long)
 			render_move(so_long);
 		}
 	}
-	
 	return (0);
 }
