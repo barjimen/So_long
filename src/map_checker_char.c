@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 23:31:39 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/05 20:13:52 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/05 21:55:30 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,9 @@ void item_removed(t_so_long	*so_long)
 		so_long->map[so_long->player.y][so_long->player.x] = '0';
 	}
 	if (so_long->player.collect_num == so_long->maps.c && so_long->map[so_long->player.y][so_long->player.x] == 'E')
+	{
+		
+		mlx_destroy_window(so_long->mlx_data.mlx_ptr, so_long->mlx_data.win_ptr);
 		exit_msg(WIN);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/05 21:12:06 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/05 22:44:48 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,27 @@
 void render_move(t_so_long *so_long)
 {
 	char *moves;
-
-	so_long->player.player_moves++;
-	printf("Se ha movido %d veces\n", so_long->player.player_moves);
+	
+	so_long->player.player_moves += 1;
+	moves = ft_itoa(so_long->player.player_moves);
+	printf("Se ha movido %s veces\n", moves);
 	item_removed(so_long);
 	map_iter_context(so_long->map, create_background, so_long);
 	map_iter_context(so_long->map, create_items, so_long);
 	create_player(so_long);
 	mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,so_long->mlx_data.win_ptr, so_long->mlx_data.img.ptr, 0, 0);
+	mlx_string_put(so_long->mlx_data.mlx_ptr, so_long->mlx_data.win_ptr, 64, 64, 0xFFFFFF, moves);
+	free(moves);
 }
 
-int	exit_msg(char *msg)
+void move_player(t_so_long *so_long, int new_x, int new_y)
 {
-	ft_putendl_fd(msg, 2);
-	exit(EXIT_SUCCESS);
+	if (so_long->map[new_y][new_x] != '1')
+	{
+		so_long->player.x = new_x;
+		so_long->player.y = new_y;
+		render_move(so_long);
+	}
 }
 
 int close_w(t_data *mlx)
@@ -45,36 +52,12 @@ int	key_hook(int keycode, t_so_long *so_long)
 		exit(0);
 	}
 	if (keycode == XK_Up || keycode == XK_w)
-	{
-		if(so_long->map[so_long->player.y - 1][so_long->player.x] != '1')
-		{
-			so_long->player.y--;
-			render_move(so_long);
-		}
-	}
+		move_player(so_long, so_long->player.x, so_long->player.y - 1);
     if (keycode == XK_Down || keycode == XK_s)
-	{
-		if(so_long->map[so_long->player.y + 1][so_long->player.x] != '1')
-		{
-			so_long->player.y++;
-			render_move(so_long);
-		}
-	}
+		move_player(so_long, so_long->player.x, so_long->player.y + 1);
     if (keycode == XK_Right || keycode == XK_d)
-	{
-		if(so_long->map[so_long->player.y][so_long->player.x + 1] != '1')
-		{
-			so_long->player.x++;
-			render_move(so_long);
-		}
-	}
+		move_player(so_long, so_long->player.x + 1, so_long->player.y);
     if (keycode == XK_Left || keycode == XK_a)
-	{
-		if(so_long->map[so_long->player.y][so_long->player.x - 1] != '1')
-		{
-			so_long->player.x--;
-			render_move(so_long);
-		}
-	}
+		move_player(so_long, so_long->player.x - 1, so_long->player.y);
 	return (0);
 }

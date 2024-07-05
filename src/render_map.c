@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:10:40 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/05 20:58:41 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/05 22:24:52 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ void	create_player(void	*data)
 void render_map(t_so_long *so_long)
 {
 	t_data *data;
-
+	
 	data = &so_long->mlx_data;
 	data->mlx_ptr = mlx_init();
-	data->win_ptr = mlx_new_window(data->mlx_ptr, W_SIZE, H_SIZE, "Hello world!");
+	data->win_ptr = mlx_new_window(data->mlx_ptr, W_SIZE, H_SIZE, "So_Long by Barjimen");
 	data->img = create_image(data->mlx_ptr, W_SIZE, H_SIZE);
 
 	load_sprites(so_long);
@@ -87,5 +87,4 @@ void render_map(t_so_long *so_long)
 	create_player(so_long);
 	
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.ptr, 0, 0);
-	printf("%s\n", so_long->map[0]);
 }

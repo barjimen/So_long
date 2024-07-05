@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/05 20:55:43 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/05 22:10:42 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ typedef struct s_data
 	void		*win_ptr; // MLX window pointer
 	t_img		sprites[10]; // MLX image pointers (on the stack)
 	t_img		img; //TODO: background
-	//t_so_long		*map; --preguntar--
 }	t_data;
 
 typedef struct s_player

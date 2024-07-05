@@ -6,12 +6,17 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:26:01 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/05 21:17:49 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/05 21:50:20 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
+int	exit_msg(char *msg)
+{
+	ft_putendl_fd(msg, 2);
+	exit(EXIT_SUCCESS);
+}
 int main(int argc, char **argv)
 {
   (void)argc;
