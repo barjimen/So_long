@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/09 20:52:52 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/09 22:32:18 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int	ft_str_end_with(const char *str, const char *end);
 //-- Window and other things
 
 # define W_SIZE 2500
-# define H_SIZE 1080
+# define H_SIZE 1200
 
 //-- Error msg --
 # define FD_0 "FD error!"
@@ -144,6 +144,6 @@ int	ft_str_end_with(const char *str, const char *end);
 # define WIN 	  "Has ganado!"
 
 //-- Others
-# define MSG_GUIDE "Los controles son: AWSD / Flechas para moverte."
+# define MSG_GUIDE "Los controles son: AWSD o Flechas para moverte."
 
 #endif
