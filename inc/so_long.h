@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/05 22:10:42 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/09 20:52:52 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,5 +142,8 @@ int	ft_str_end_with(const char *str, const char *end);
 //-- Close window --
 # define C_WINDOW "Bye!"
 # define WIN 	  "Has ganado!"
+
+//-- Others
+# define MSG_GUIDE "Los controles son: AWSD / Flechas para moverte."
 
 #endif
