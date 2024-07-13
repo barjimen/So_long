@@ -6,13 +6,13 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/09 20:59:43 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/13 23:53:44 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void render_move(t_so_long *so_long)
+void render_move(t_so_long *so_long, int sprite_type)
 {
 	char *moves;
 	char *collecti;
@@ -28,7 +28,7 @@ void render_move(t_so_long *so_long)
 	item_removed(so_long);
 	map_iter_context(so_long->map, create_background, so_long);
 	map_iter_context(so_long->map, create_items, so_long);
-	create_player(so_long);
+	create_player(so_long, sprite_type);
 	mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,so_long->mlx_data.win_ptr, so_long->mlx_data.img.ptr, 0, 0);
 	mlx_string_put(so_long->mlx_data.mlx_ptr, so_long->mlx_data.win_ptr, 64, 64, 0xFFFFFF, moves);
 	mlx_string_put(so_long->mlx_data.mlx_ptr, so_long->mlx_data.win_ptr, 64, 128, 0xFFFFFF, collecti);
@@ -38,13 +38,13 @@ void render_move(t_so_long *so_long)
 	free(b);
 }
 
-void move_player(t_so_long *so_long, int new_x, int new_y)
+void move_player(t_so_long *so_long, int new_x, int new_y, int sprite_type)
 {
 	if (so_long->map[new_y][new_x] != '1')
 	{
 		so_long->player.x = new_x;
 		so_long->player.y = new_y;
-		render_move(so_long);
+		render_move(so_long, sprite_type);
 	}
 }
 
@@ -62,12 +62,12 @@ int	key_hook(int keycode, t_so_long *so_long)
 		exit(0);
 	}
 	if (keycode == XK_Up || keycode == XK_w)
-		move_player(so_long, so_long->player.x, so_long->player.y - 1);
+		move_player(so_long, so_long->player.x, so_long->player.y - 1, PLAYER_UP);
     if (keycode == XK_Down || keycode == XK_s)
-		move_player(so_long, so_long->player.x, so_long->player.y + 1);
+		move_player(so_long, so_long->player.x, so_long->player.y + 1, PLAYER_DOWN);
     if (keycode == XK_Right || keycode == XK_d)
-		move_player(so_long, so_long->player.x + 1, so_long->player.y);
+		move_player(so_long, so_long->player.x + 1, so_long->player.y, PLAYER_RIGHT);
     if (keycode == XK_Left || keycode == XK_a)
-		move_player(so_long, so_long->player.x - 1, so_long->player.y);
+		move_player(so_long, so_long->player.x - 1, so_long->player.y, PLAYER_LEFT);
 	return (0);
 }

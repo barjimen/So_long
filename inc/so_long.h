@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/09 22:32:18 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/13 23:35:21 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@
 
 typedef enum e_sprites {
 	FLOOR,
-	PLAYER,
+	PLAYER_UP,
+	PLAYER_DOWN,
+	PLAYER_RIGHT,
+	PLAYER_LEFT,
 	COLLECT,
 	WALL,
 	EXIT,
@@ -107,7 +110,7 @@ t_img			load_xpm(void *mlx, char *path);
 void	create_background(void	*data, int x, int y);
 void	 item_removed(t_so_long	*so_long);
 void	create_items(void	*data, int x, int y);
-void	create_player(void	*data);
+void	create_player(void	*data, int x);
 
 
 
