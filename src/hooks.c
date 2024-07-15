@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/15 22:03:56 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/15 22:49:11 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	render_move(t_so_long *so_long, int sprite_type)
 	so_long->player.player_moves += 1;
 	moves = ft_strjoin("Numero de movimientos: ", a);
 	collecti = ft_strjoin("Numero de coleccionables: ", b);
-	printf("Se ha movido %s veces\n", moves);
+	ft_printf("Se ha movido %s veces\n", moves);
 	item_removed(so_long);
 	map_iter_context(so_long->map, create_background, so_long);
 	map_iter_context(so_long->map, create_items, so_long);

@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 13:02:21 by barjimen          #+#    #+#              #
-#    Updated: 2024/06/28 00:33:38 by barjimen         ###   ########.fr        #
+#    Updated: 2024/07/15 22:51:16 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,13 @@ FILE_C =	ft_isalpha.c	\
 			ft_strtrim.c	\
 			ft_split.c		\
 			get_next_line.c	\
+			ft_printf.c		\
+			ft_point.c		\
+			ft_low_x_or_up_x.c	\
+			ft_hexa_p.c		\
+			ft_hexa.c		\
+			
+			
 
 FILE_C_BONUS =	ft_lstnew_bonus.c		\
 				ft_lstadd_front_bonus.c	\
