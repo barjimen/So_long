@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/13 23:35:21 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/15 22:35:05 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef enum e_sprites {
 	FLOOR,
 	PLAYER_UP,
 	PLAYER_DOWN,
-	PLAYER_RIGHT,
+	PLAYER_RGHT,
 	PLAYER_LEFT,
 	COLLECT,
 	WALL,
@@ -145,6 +145,17 @@ int	ft_str_end_with(const char *str, const char *end);
 //-- Close window --
 # define C_WINDOW "Bye!"
 # define WIN 	  "Has ganado!"
+
+//-- SRC IMG
+# define WALLS_SRC "./img/grass.xpm"
+# define FLOOR_SRC "./img/wood_floor.xpm"
+# define ROOMBA_SRC_RHT "./img/roomba_right.xpm"
+# define ROOMBA_SRC_LFT "./img/roomba_left.xpm"
+# define ROOMBA_SRC_UP "./img/roomba_up.xpm"
+# define ROOMBA_SRC_DWN "./img/roomba_down.xpm"
+# define EXIT_OK_SRC "./img/exit_win.xpm"
+# define EXIT_KO_SRC "./img/exit_close.xpm"
+# define COLLECT_SRC "./img/item_1.xpm"
 
 //-- Others
 # define MSG_GUIDE "Los controles son: AWSD o Flechas para moverte."

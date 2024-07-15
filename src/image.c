@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 20:43:09 by barjimen          #+#    #+#             */
-/*   Updated: 2024/06/27 20:45:07 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/15 22:34:21 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,18 @@ void	put_pixel_img(t_img img, int x, int y, int color)
 	}
 }
 
-t_img create_image(void *mlx, int width, int height)
+t_img	create_image(void *mlx, int width, int height)
 {
 	t_img	image;
 
 	image.ptr = mlx_new_image(mlx, width, height);
 	image.width = width;
 	image.height = height;
-	image.addr = mlx_get_data_addr(image.ptr, &image.bppx, &image.line_length, &image.endian);
-	return image;
+	image.addr = mlx_get_data_addr(image.ptr, &image.bppx,
+			&image.line_length, &image.endian);
+	return (image);
 }
+
 unsigned int	get_pixel_img(t_img img, int x, int y)
 {
 	return (*(unsigned int *)((img.addr
@@ -43,11 +45,11 @@ unsigned int	get_pixel_img(t_img img, int x, int y)
 
 void	put_img_to_img(t_img dst, t_img src, int x, int y)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	while(i < src.width)
+	while (i < src.width)
 	{
 		j = 0;
 		while (j < src.height)
@@ -59,11 +61,13 @@ void	put_img_to_img(t_img dst, t_img src, int x, int y)
 	}
 }
 
-t_img load_xpm(void *mlx, char *path)
+t_img	load_xpm(void *mlx, char *path)
 {
 	t_img	image;
 
-	image.ptr = mlx_xpm_file_to_image(mlx, path, &image.width, &image.height);
-	image.addr = mlx_get_data_addr(image.ptr, &image.bppx, &image.line_length, &image.endian);
-	return image;
+	image.ptr = mlx_xpm_file_to_image(mlx, path,
+			&image.width, &image.height);
+	image.addr = mlx_get_data_addr(image.ptr, &image.bppx,
+			&image.line_length, &image.endian);
+	return (image);
 }
