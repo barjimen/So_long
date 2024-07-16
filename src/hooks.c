@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/15 22:49:11 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/16 20:51:36 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	render_move(t_so_long *so_long, int sprite_type)
 	so_long->player.player_moves += 1;
 	moves = ft_strjoin("Numero de movimientos: ", a);
 	collecti = ft_strjoin("Numero de coleccionables: ", b);
-	ft_printf("Se ha movido %s veces\n", moves);
+	printf("Se ha movido %s veces\n", moves);
 	item_removed(so_long);
 	map_iter_context(so_long->map, create_background, so_long);
 	map_iter_context(so_long->map, create_items, so_long);
@@ -69,13 +69,13 @@ int	key_hook(int keycode, t_so_long *so_long)
 	if (keycode == XK_Up || keycode == XK_w)
 		move_player(so_long, so_long->player.x,
 			so_long->player.y - 1, PLAYER_UP);
-	if (keycode == XK_Down || keycode == XK_s)
+	else if (keycode == XK_Down || keycode == XK_s)
 		move_player(so_long, so_long->player.x,
 			so_long->player.y + 1, PLAYER_DOWN);
-	if (keycode == XK_Right || keycode == XK_d)
+	else if (keycode == XK_Right || keycode == XK_d)
 		move_player(so_long, so_long->player.x + 1,
 			so_long->player.y, PLAYER_RGHT);
-	if (keycode == XK_Left || keycode == XK_a)
+	else if (keycode == XK_Left || keycode == XK_a)
 		move_player(so_long, so_long->player.x - 1,
 			so_long->player.y, PLAYER_LEFT);
 	return (0);

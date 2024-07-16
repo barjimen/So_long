@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:26:01 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/15 22:24:30 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/16 21:46:59 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ int	main(int argc, char **argv)
 	mlx_key_hook(so_long.mlx_data.win_ptr, key_hook, &so_long);
 	mlx_hook(so_long.mlx_data.win_ptr, 17, 0, close_w, &so_long.mlx_data);
 	mlx_loop(so_long.mlx_data.mlx_ptr);
+
+	//mlx_destroy_display(so_long.mlx_data.win_ptr);
 }
