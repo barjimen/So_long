@@ -6,11 +6,24 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/16 20:51:36 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/17 00:03:38 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+void	create_cover(void	*data, int sprite_type)
+{
+	t_so_long	*so_long;
+
+	so_long = (t_so_long *)data;
+	put_img_to_img(so_long->mlx_data.img,
+		so_long->mlx_data.sprites[sprite_type],
+		(W_SIZE / 2 - so_long->map_w / 2)
+		+ so_long->player.x * 64 - (64 * so_long->player.y),
+		(H_SIZE / 4 - so_long->map_h / 2) + so_long->player.y
+		* 32 + (32 * so_long->player.x));
+}
 
 void	render_move(t_so_long *so_long, int sprite_type)
 {
@@ -26,7 +39,7 @@ void	render_move(t_so_long *so_long, int sprite_type)
 	collecti = ft_strjoin("Numero de coleccionables: ", b);
 	printf("Se ha movido %s veces\n", moves);
 	item_removed(so_long);
-	map_iter_context(so_long->map, create_background, so_long);
+	//map_iter_context(so_long->map, create_background, so_long);
 	map_iter_context(so_long->map, create_items, so_long);
 	create_player(so_long, sprite_type);
 	mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,
@@ -45,6 +58,7 @@ void	move_player(t_so_long *so_long, int new_x, int new_y, int sprite_type)
 {
 	if (so_long->map[new_y][new_x] != '1')
 	{
+		create_cover(so_long, COVER);
 		so_long->player.x = new_x;
 		so_long->player.y = new_y;
 		render_move(so_long, sprite_type);

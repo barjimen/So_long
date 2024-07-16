@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:10:40 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/16 21:50:12 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/17 00:03:00 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	load_sprites(t_so_long *so_long)
 			EXIT_OK_SRC);
 	so_long->mlx_data.sprites[COLLECT] = load_xpm(so_long->mlx_data.mlx_ptr,
 			COLLECT_SRC);
+	so_long->mlx_data.sprites[COVER] = load_xpm(so_long->mlx_data.mlx_ptr,
+			"./img/wood_floor_cover.xpm");
 }
 
 void	create_background(void	*data, int x, int y)

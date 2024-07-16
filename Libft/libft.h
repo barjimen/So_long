@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: barjimen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 14:06:42 by barjimen          #+#    #+#             */
-/*   Updated: 2023/01/03 18:55:21 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/16 23:20:11 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 
 char	*get_next_line(int fd);
-
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/15 22:35:05 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/17 00:03:59 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ typedef enum e_sprites {
 	WALL,
 	EXIT,
 	EXIT_OK,
-	ENEMY
+	ENEMY,
+	COVER
 } t_sprites;
 
 typedef struct s_img {
@@ -52,7 +53,7 @@ typedef struct s_data
 {
 	void		*mlx_ptr; // MLX pointer
 	void		*win_ptr; // MLX window pointer
-	t_img		sprites[10]; // MLX image pointers (on the stack)
+	t_img		sprites[11]; // MLX image pointers (on the stack)
 	t_img		img; //TODO: background
 }	t_data;
 
