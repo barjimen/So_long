@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/24 20:56:37 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/24 21:01:13 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ int	ft_str_end_with(const char *str, const char *end);
 # define MAP_H_KO "Height not valid!"
 # define MAP_W_KO "Width not valid!"
 # define MAP_LENGHT_KO "Different lenght lines!"
-# define IMG_KO "Image does's exist!"
+# define IMG_KO "Image missing!!!"
 //-- Map checker error msg --
 # define CPE_MSG "C,P or E error!"
 # define C_MSG "Can't reach C!"

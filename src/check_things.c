@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 20:18:26 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/24 20:56:23 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/24 21:01:21 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int check_all_img(void)
         || !img_exist(ROOMBA_SRC_RHT) || !img_exist(WALLS_SRC)
         || !img_exist(EXIT_KO_SRC) || !img_exist(EXIT_OK_SRC)
         || !img_exist(COLLECT_SRC) || !img_exist(COVER_SRC))
-        return (exit_msg("MISSING FILE"));
+        return (exit_msg(IMG_KO));
     return (1);
 }
