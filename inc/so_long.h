@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/17 00:03:59 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/24 20:56:37 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void	create_background(void	*data, int x, int y);
 void	 item_removed(t_so_long	*so_long);
 void	create_items(void	*data, int x, int y);
 void	create_player(void	*data, int x);
+int check_all_img(void);
 
 
 
@@ -157,6 +158,7 @@ int	ft_str_end_with(const char *str, const char *end);
 # define EXIT_OK_SRC "./img/exit_win.xpm"
 # define EXIT_KO_SRC "./img/exit_close.xpm"
 # define COLLECT_SRC "./img/item_1.xpm"
+# define COVER_SRC "./img/wood_floor_cover.xpm"
 
 //-- Others
 # define MSG_GUIDE "Los controles son: AWSD o Flechas para moverte."

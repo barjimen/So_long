@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:10:40 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/17 00:03:00 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/24 20:56:20 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	load_sprites(t_so_long *so_long)
 	so_long->mlx_data.sprites[COLLECT] = load_xpm(so_long->mlx_data.mlx_ptr,
 			COLLECT_SRC);
 	so_long->mlx_data.sprites[COVER] = load_xpm(so_long->mlx_data.mlx_ptr,
-			"./img/wood_floor_cover.xpm");
+			COVER_SRC);
 }
 
 void	create_background(void	*data, int x, int y)
@@ -104,5 +104,6 @@ void	render_map(t_so_long *so_long)
 	map_iter_context(so_long->map, create_items, so_long);
 	create_player(so_long, PLAYER_DOWN);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.ptr, 0, 0);
+	mlx_set_font(so_long->mlx_data.mlx_ptr, so_long->mlx_data.win_ptr, "12x24romankana");
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 250, 0xFFFFFF, MSG_GUIDE);
 }

@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/17 00:03:38 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/24 19:58:57 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	render_move(t_so_long *so_long, int sprite_type)
 	collecti = ft_strjoin("Numero de coleccionables: ", b);
 	printf("Se ha movido %s veces\n", moves);
 	item_removed(so_long);
-	//map_iter_context(so_long->map, create_background, so_long);
 	map_iter_context(so_long->map, create_items, so_long);
 	create_player(so_long, sprite_type);
 	mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,
@@ -47,7 +46,7 @@ void	render_move(t_so_long *so_long, int sprite_type)
 	mlx_string_put(so_long->mlx_data.mlx_ptr,
 		so_long->mlx_data.win_ptr, 64, 64, 0xFFFFFF, moves);
 	mlx_string_put(so_long->mlx_data.mlx_ptr,
-		so_long->mlx_data.win_ptr, 64, 128, 0xFFFFFF, collecti);
+		so_long->mlx_data.win_ptr, 64, 128, 0xFFFFFF, collecti);	
 	free(moves);
 	free(collecti);
 	free(a);
