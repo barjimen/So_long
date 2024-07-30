@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/24 19:58:57 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/30 23:59:52 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ void	create_cover(void	*data, int sprite_type)
 
 	so_long = (t_so_long *)data;
 	put_img_to_img(so_long->mlx_data.img,
-		so_long->mlx_data.sprites[sprite_type],
-		(W_SIZE / 2 - so_long->map_w / 2)
+		so_long->mlx_data.sprites[sprite_type], so_long->w_offset
 		+ so_long->player.x * 64 - (64 * so_long->player.y),
-		(H_SIZE / 4 - so_long->map_h / 2) + so_long->player.y
+		so_long->h_offset + so_long->player.y
 		* 32 + (32 * so_long->player.x));
 }
 

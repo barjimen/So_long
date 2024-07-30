@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 20:29:52 by barjimen          #+#    #+#              #
-#    Updated: 2024/07/24 20:42:54 by barjimen         ###   ########.fr        #
+#    Updated: 2024/07/30 23:37:57 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@
 						hooks				\
 						ft_str_end_with		\
 						check_things		\
+						offset_calculator	\
 						
 
 #--- File variables

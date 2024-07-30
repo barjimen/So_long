@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/24 21:01:13 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/30 23:53:10 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <math.h>
 
 typedef enum e_sprites {
 	FLOOR,
@@ -79,7 +80,8 @@ typedef struct s_so_long
 	char		**map;
 	int			map_h;
 	int 		map_w;
-	
+	int			h_offset;
+	int			w_offset;
 	
 	t_map		maps;
 	t_player	player;
@@ -99,6 +101,7 @@ int 	length_map(char **map);
 int		height_map(char **map);
 void	paint_map(int width, int height, char *img, t_so_long *so_long);
 char	**load_map(char *path);
+void    offset_calculator(t_so_long *so_long);
 
 
 /* Image Handle */
@@ -127,8 +130,8 @@ int	ft_str_end_with(const char *str, const char *end);
 
 //-- Window and other things
 
-# define W_SIZE 2500
-# define H_SIZE 1200
+# define W_SIZE 3840
+# define H_SIZE 1980
 
 //-- Error msg --
 # define FD_0 "FD error!"
@@ -158,7 +161,7 @@ int	ft_str_end_with(const char *str, const char *end);
 # define EXIT_OK_SRC "./img/exit_win.xpm"
 # define EXIT_KO_SRC "./img/exit_close.xpm"
 # define COLLECT_SRC "./img/item_1.xpm"
-# define COVER_SRC "./img/wood_floor_cover.xpm"
+# define COVER_SRC "./img/cover.xpm"
 
 //-- Others
 # define MSG_GUIDE "Los controles son: AWSD o Flechas para moverte."

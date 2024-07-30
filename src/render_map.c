@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:10:40 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/24 20:56:20 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/07/30 23:58:34 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	create_background(void	*data, int x, int y)
 	if (so_long->map[y][x] == '1')
 		put_img_to_img(so_long->mlx_data.img,
 			so_long->mlx_data.sprites[WALL],
-			(W_SIZE / 2 - so_long->map_w / 2) + x * 64 - (64 * y),
-			(H_SIZE / 4 - so_long->map_h / 2) + 20 + y * 32 + (32 * x));
+			 so_long->w_offset + x * 64 - (64 * y),
+			 so_long->h_offset + 20 + y * 32 + (32 * x));
 	if (ft_strchr("0PCE", so_long->map[y][x]))
 		put_img_to_img(so_long->mlx_data.img,
 			so_long->mlx_data.sprites[FLOOR],
-			(W_SIZE / 2 - so_long->map_w / 2) + x * 64 - (64 * y),
-			(H_SIZE / 4 - so_long->map_h / 2) + y * 32 + (32 * x));
+			so_long->w_offset + x * 64 - (64 * y),
+			so_long->h_offset + y * 32 + (32 * x));
 }
 
 void	create_items(void	*data, int x, int y)
@@ -61,20 +61,20 @@ void	create_items(void	*data, int x, int y)
 	if (so_long->map[y][x] == 'C')
 		put_img_to_img(so_long->mlx_data.img,
 			so_long->mlx_data.sprites[COLLECT],
-			(W_SIZE / 2 - so_long->map_w / 2) + x * 64 - (64 * y),
-			(H_SIZE / 4 - so_long->map_h / 2) + y * 32 + (32 * x));
+			so_long->w_offset + x * 64 - (64 * y),
+			so_long->h_offset + y * 32 + (32 * x));
 	else if (so_long->map[y][x] == 'E' &&
 		so_long->player.collect_num != so_long->maps.c)
 		put_img_to_img(so_long->mlx_data.img,
 			so_long->mlx_data.sprites[EXIT],
-			(W_SIZE / 2 - so_long->map_w / 2) + x * 64 - (64 * y),
-			(H_SIZE / 4 - so_long->map_h / 2) + y * 32 + (32 * x));
+			so_long->w_offset + x * 64 - (64 * y),
+			so_long->h_offset + y * 32 + (32 * x));
 	else if (so_long->player.collect_num == so_long->maps.c
 		&& so_long->map[y][x] == 'E')
 		put_img_to_img(so_long->mlx_data.img,
 			so_long->mlx_data.sprites[EXIT_OK],
-			(W_SIZE / 2 - so_long->map_w / 2) + x * 64 - (64 * y),
-			(H_SIZE / 4 - so_long->map_h / 2) + y * 32 + (32 * x));
+			so_long->w_offset + x * 64 - (64 * y),
+			so_long->h_offset + y * 32 + (32 * x));
 }
 
 void	create_player(void	*data, int sprite_type)
@@ -84,9 +84,9 @@ void	create_player(void	*data, int sprite_type)
 	so_long = (t_so_long *)data;
 	put_img_to_img(so_long->mlx_data.img,
 		so_long->mlx_data.sprites[sprite_type],
-		(W_SIZE / 2 - so_long->map_w / 2)
+		so_long->w_offset
 		+ so_long->player.x * 64 - (64 * so_long->player.y),
-		(H_SIZE / 4 - so_long->map_h / 2) + so_long->player.y
+		so_long->h_offset + so_long->player.y
 		* 32 + (32 * so_long->player.x));
 }
 
