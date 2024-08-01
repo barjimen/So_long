@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/30 23:53:10 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/01 23:30:50 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ int	ft_str_end_with(const char *str, const char *end);
 # define E_MSG "Can't reach E!"
 //-- Close window --
 # define C_WINDOW "Bye!"
-# define WIN 	  "Has ganado!"
+# define WIN 	  "You win!"
 
 //-- SRC IMG
 # define WALLS_SRC "./img/grass.xpm"
