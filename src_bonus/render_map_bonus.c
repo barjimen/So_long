@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:10:40 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/03 16:05:10 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/03 17:31:25 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	load_sprites(t_so_long *so_long)
 			ROOMBA_SRC_RHT);
 	so_long->mlx_data.sprites[WALL] = load_xpm(so_long->mlx_data.mlx_ptr,
 			WALLS_SRC);
-	so_long->mlx_data.sprites[EXIT] = load_xpm(so_long->mlx_data.mlx_ptr,
+	so_long->mlx_data.sprites[EXIT_1] = load_xpm(so_long->mlx_data.mlx_ptr,
 			EXIT_KO_SRC);
-	so_long->mlx_data.sprites[EXIT_OK] = load_xpm(so_long->mlx_data.mlx_ptr,
+	so_long->mlx_data.sprites[EXIT_OK_1] = load_xpm(so_long->mlx_data.mlx_ptr,
 			EXIT_OK_SRC);
 	so_long->mlx_data.sprites[COLLECT] = load_xpm(so_long->mlx_data.mlx_ptr,
 			COLLECT_SRC);
@@ -68,13 +68,13 @@ void	create_items(void	*data, int x, int y)
 	else if (so_long->map[y][x] == 'E' &&
 		so_long->player.collect_num != so_long->maps.c)
 		put_img_to_img(so_long->mlx_data.img,
-			so_long->mlx_data.sprites[EXIT],
+			so_long->mlx_data.sprites[EXIT_1],
 			so_long->w_offset + x * 64 - (64 * y),
 			so_long->h_offset + y * 32 + (32 * x));
 	else if (so_long->player.collect_num == so_long->maps.c
 		&& so_long->map[y][x] == 'E')
 		put_img_to_img(so_long->mlx_data.img,
-			so_long->mlx_data.sprites[EXIT_OK],
+			so_long->mlx_data.sprites[EXIT_OK_1],
 			so_long->w_offset + x * 64 - (64 * y),
 			so_long->h_offset + y * 32 + (32 * x));
 }

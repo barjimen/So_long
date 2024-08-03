@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/03 16:21:23 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/03 17:34:15 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,14 @@ typedef enum e_sprites {
 	PLAYER_LEFT,
 	COLLECT,
 	WALL,
-	EXIT,
-	EXIT_OK,
+	EXIT_1,
+	EXIT_2,
+	EXIT_3,
+	EXIT_4,
+	EXIT_OK_1,
+	EXIT_OK_2,
+	EXIT_OK_3,
+	EXIT_OK_4,
 	ENEMY,
 	COVER
 } t_sprites;
@@ -54,7 +60,7 @@ typedef struct s_data
 {
 	void		*mlx_ptr; // MLX pointer
 	void		*win_ptr; // MLX window pointer
-	t_img		sprites[11]; // MLX image pointers (on the stack)
+	t_img		sprites[17]; // MLX image pointers (on the stack)
 	t_img		img; //TODO: background
 }	t_data;
 
@@ -82,6 +88,7 @@ typedef struct s_so_long
 	int 		map_w;
 	int			h_offset;
 	int			w_offset;
+	int			time;
 	
 	t_map		maps;
 	t_player	player;
@@ -115,7 +122,7 @@ void	create_background(void	*data, int x, int y);
 void	 item_removed(t_so_long	*so_long);
 void	create_items(void	*data, int x, int y);
 void	create_player(void	*data, int x);
-int check_all_img(void);
+int 	check_all_img(void);
 void	create_enemy(void	*data, int x, int y);
 
 
