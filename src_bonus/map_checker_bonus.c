@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_checker.c                                      :+:      :+:    :+:   */
+/*   map_checker_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:13:57 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/16 20:55:08 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/03 16:21:28 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	is_walled(char **map, int width, int height)
 				|| i == height - 1 || j == width - 1))
 				printf("no es 1\n");
 			if (map[i][j] != '1' && map[i][j] != '0'
-				&& map[i][j] != 'C' && map[i][j] != 'E' && map[i][j] != 'P')
-				exit_msg(MAP_CHAR_KO);
+				&& map[i][j] != 'C' && map[i][j] != 'E' && map[i][j] != 'P' && map[i][j] != 'X')
+				exit_msg(MAP_CHAR_KO_B);
 			j++;
 		}
 		j = 0;
@@ -104,5 +104,11 @@ void	item_removed(t_so_long	*so_long)
 		mlx_destroy_window(so_long->mlx_data.mlx_ptr,
 			so_long->mlx_data.win_ptr);
 		exit_msg(WIN);
+	}
+	if (so_long->map[so_long->player.y][so_long->player.x] == 'X')
+	{
+		mlx_destroy_window(so_long->mlx_data.mlx_ptr,
+			so_long->mlx_data.win_ptr);
+		exit_msg(DEAD);
 	}
 }

@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_things.c                                     :+:      :+:    :+:   */
+/*   check_things_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 20:18:26 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/24 21:01:21 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/03 15:54:47 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+void	create_enemy(void	*data, int x, int y)
+{
+    t_so_long	*so_long;
+
+	so_long = (t_so_long *)data;
+	if (so_long->map[y][x] == 'X')
+		put_img_to_img(so_long->mlx_data.img,
+			so_long->mlx_data.sprites[ENEMY],
+			so_long->w_offset + x * 64 - (64 * y),
+			so_long->h_offset + y * 32 + (32 * x));
+}
 
 int img_exist(char *img)
 {

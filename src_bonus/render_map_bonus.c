@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_map.c                                       :+:      :+:    :+:   */
+/*   render_map_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:10:40 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/30 23:58:34 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/03 16:05:10 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	load_sprites(t_so_long *so_long)
 			COLLECT_SRC);
 	so_long->mlx_data.sprites[COVER] = load_xpm(so_long->mlx_data.mlx_ptr,
 			COVER_SRC);
+	so_long->mlx_data.sprites[ENEMY] = load_xpm(so_long->mlx_data.mlx_ptr,
+			ENEMY_SRC);
 }
 
 void	create_background(void	*data, int x, int y)
@@ -46,7 +48,7 @@ void	create_background(void	*data, int x, int y)
 			so_long->mlx_data.sprites[WALL],
 			 so_long->w_offset + x * 64 - (64 * y),
 			 so_long->h_offset + 20 + y * 32 + (32 * x));
-	if (ft_strchr("0PCE", so_long->map[y][x]))
+	if (ft_strchr("0PCEX", so_long->map[y][x]))
 		put_img_to_img(so_long->mlx_data.img,
 			so_long->mlx_data.sprites[FLOOR],
 			so_long->w_offset + x * 64 - (64 * y),
@@ -102,6 +104,7 @@ void	render_map(t_so_long *so_long)
 	load_sprites(so_long);
 	map_iter_context(so_long->map, create_background, so_long);
 	map_iter_context(so_long->map, create_items, so_long);
+	map_iter_context(so_long->map, create_enemy, so_long);
 	create_player(so_long, PLAYER_DOWN);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.ptr, 0, 0);
 	mlx_set_font(so_long->mlx_data.mlx_ptr, so_long->mlx_data.win_ptr, "12x24romankana");

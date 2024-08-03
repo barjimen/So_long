@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/01 23:30:50 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/03 16:21:23 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,7 @@ void	 item_removed(t_so_long	*so_long);
 void	create_items(void	*data, int x, int y);
 void	create_player(void	*data, int x);
 int check_all_img(void);
-
-
+void	create_enemy(void	*data, int x, int y);
 
 
 //Hooks
@@ -139,6 +138,7 @@ int	ft_str_end_with(const char *str, const char *end);
 # define ARG_KO "To much arguments!"
 # define MAP_KO "Invalid map!"
 # define MAP_CHAR_KO "Only valid 1,0,C,P,E"
+# define MAP_CHAR_KO_B "Only valid 1,0,C,P,E and X"
 # define MAP_H_KO "Height not valid!"
 # define MAP_W_KO "Width not valid!"
 # define MAP_LENGHT_KO "Different lenght lines!"
@@ -150,6 +150,7 @@ int	ft_str_end_with(const char *str, const char *end);
 //-- Close window --
 # define C_WINDOW "Bye!"
 # define WIN 	  "You win!"
+# define DEAD 	  "The cats win, you lose!"
 
 //-- SRC IMG
 # define WALLS_SRC "./img/grass.xpm"
@@ -160,8 +161,9 @@ int	ft_str_end_with(const char *str, const char *end);
 # define ROOMBA_SRC_DWN "./img/roomba_down.xpm"
 # define EXIT_OK_SRC "./img/exit_win.xpm"
 # define EXIT_KO_SRC "./img/exit_close.xpm"
-# define COLLECT_SRC "./img/item_1.xpm"
+# define COLLECT_SRC "./img/trash.xpm"
 # define COVER_SRC "./img/cover.xpm"
+# define ENEMY_SRC "./img/enemy_1.xpm"
 
 //-- Others
 # define MSG_GUIDE "Los controles son: AWSD o Flechas para moverte."

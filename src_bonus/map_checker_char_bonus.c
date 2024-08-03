@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_checker_char.c                                 :+:      :+:    :+:   */
+/*   map_checker_char_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 23:31:39 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/15 22:17:37 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/03 16:02:34 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	is_char(void *data, int x, int y)
 	}
 	else if (so_long->map[y][x] == 'E')
 		so_long->maps.e++;
+	//else if (so_long->map[y][x] == 'X')
+		//exit_msg("You die!");	
 }
 
 void	map_iter_context(char **map, void (*f)(void *, int x, int y),
