@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/03 17:34:15 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/04 20:51:41 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,7 @@ typedef enum e_sprites {
 	COLLECT,
 	WALL,
 	EXIT_1,
-	EXIT_2,
-	EXIT_3,
-	EXIT_4,
 	EXIT_OK_1,
-	EXIT_OK_2,
-	EXIT_OK_3,
-	EXIT_OK_4,
 	ENEMY,
 	COVER
 } t_sprites;
@@ -55,6 +49,14 @@ typedef struct s_img {
 	int     width;
     int     height;
 }				t_img;
+
+typedef struct s_anim
+{
+	t_img *images;
+	char *file;
+	int frame;
+	int max;
+} t_anim;
 
 typedef struct s_data
 {
@@ -88,8 +90,9 @@ typedef struct s_so_long
 	int 		map_w;
 	int			h_offset;
 	int			w_offset;
-	int			time;
 	
+	t_anim		exit_close;
+	t_anim		exit_open;
 	t_map		maps;
 	t_player	player;
 	t_data 		mlx_data;
@@ -124,7 +127,8 @@ void	create_items(void	*data, int x, int y);
 void	create_player(void	*data, int x);
 int 	check_all_img(void);
 void	create_enemy(void	*data, int x, int y);
-
+void	images_load(t_so_long *mlx, t_anim *images, char *file, int frames);
+void create_anim(t_so_long *mlx, t_anim *images, int x, int y);
 
 //Hooks
 int	exit_msg(char *msg);

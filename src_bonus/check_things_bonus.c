@@ -6,45 +6,41 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 20:18:26 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/03 17:44:15 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/04 21:03:11 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void create_anim(void	*data, int x, int y)
+void	images_load(t_so_long *so_long, t_anim *anim, char *file, int frames)
 {
-    t_so_long	*so_long;
-    so_long = (t_so_long *)data;
-    
-    static int  cont = 0;
-    if ( so_long->time == 0)
-    {
-        if (cont < 7)
-        {
-            put_img_to_img(so_long->mlx_data.img,
-			so_long->mlx_data.sprites[EXIT_1],
-			so_long->w_offset + x * 64 - (64 * y),
-			so_long->h_offset + y * 32 + (32 * x));
-            put_img_to_img(so_long->mlx_data.img,
-			so_long->mlx_data.sprites[EXIT_2],
-			so_long->w_offset + x * 64 - (64 * y),
-			so_long->h_offset + y * 32 + (32 * x));
-            cont++;
-        }
-        
-    }
+	int		i;
+	int		len;
+
+	anim->max = frames;
+	len = ft_strlen(file) + 1;
+	anim->file = malloc(sizeof(char) * (len));
+	ft_strlcpy(anim->file, file, len);
+	anim->images = malloc(sizeof(t_img) * (frames + 1));
+	i = -1;
+	while (++i <= frames)
+	{
+		anim->file[len - 6] = '0' + i % 10;
+		anim->file[len - 7] = '0' + i / 10;
+		anim->images[i] = load_xpm(so_long->mlx_data.mlx_ptr,
+				anim->file);
+	}
 }
 
-int exit_anim(void *data)
+void create_anim(t_so_long *so_long, t_anim *anim, int x, int y)
 {
-    t_so_long	*so_long;
-
-    so_long->time == 0;
-    so_long->time++;
-    if (so_long->time % 1000 = 0)
-        create_anim(&so_long);
-    return (0);
+    printf("%d", anim->frame);
+    put_img_to_img(so_long->mlx_data.img,
+		anim->images[anim->frame], x, y);
+	if (anim->frame < anim->max)
+		anim->frame++;
+	else
+		anim->frame = 0;
 }
 
 void	create_enemy(void	*data, int x, int y)

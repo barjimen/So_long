@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:10:40 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/03 17:31:25 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/04 21:14:11 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	load_sprites(t_so_long *so_long)
 			COVER_SRC);
 	so_long->mlx_data.sprites[ENEMY] = load_xpm(so_long->mlx_data.mlx_ptr,
 			ENEMY_SRC);
+	images_load(so_long, &so_long->exit_close,"./img/exit/red/00.xpm",7);
+	images_load(so_long, &so_long->exit_open,"./img/exit/00.xpm",7);
 }
 
 void	create_background(void	*data, int x, int y)
@@ -67,16 +69,11 @@ void	create_items(void	*data, int x, int y)
 			so_long->h_offset + y * 32 + (32 * x));
 	else if (so_long->map[y][x] == 'E' &&
 		so_long->player.collect_num != so_long->maps.c)
-		put_img_to_img(so_long->mlx_data.img,
-			so_long->mlx_data.sprites[EXIT_1],
-			so_long->w_offset + x * 64 - (64 * y),
-			so_long->h_offset + y * 32 + (32 * x));
+		create_anim(so_long, &so_long->exit_close,so_long->w_offset + x * 64 - (64 * y), so_long->h_offset + y * 32 + (32 * x));
+		
 	else if (so_long->player.collect_num == so_long->maps.c
 		&& so_long->map[y][x] == 'E')
-		put_img_to_img(so_long->mlx_data.img,
-			so_long->mlx_data.sprites[EXIT_OK_1],
-			so_long->w_offset + x * 64 - (64 * y),
-			so_long->h_offset + y * 32 + (32 * x));
+		create_anim(so_long, &so_long->exit_open,so_long->w_offset + x * 64 - (64 * y), so_long->h_offset + y * 32 + (32 * x));
 }
 
 void	create_player(void	*data, int sprite_type)
