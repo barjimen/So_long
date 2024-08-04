@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 23:20:58 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/04 22:05:33 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/04 22:15:34 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,8 @@ int	main(int argc, char **argv)
 	so_long.map = load_map(argv[1]);
 	offset_calculator(&so_long);
 	render_map(&so_long);
-	printf("A\n");
 	mlx_loop_hook(so_long.mlx_data.mlx_ptr, hook_animate, &so_long);
-	printf("B\n");
 	mlx_key_hook(so_long.mlx_data.win_ptr, key_hook, &so_long);
-	printf("C\n");
-	// mlx_hook(so_long.mlx_data.win_ptr, 17, 0, close_w, &so_long.mlx_data);
+	mlx_hook(so_long.mlx_data.win_ptr, 17, 0, close_w, &so_long.mlx_data);
 	mlx_loop(so_long.mlx_data.mlx_ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/04 21:56:35 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/04 22:14:29 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	put_text(t_so_long *so_long)
 	a = ft_itoa(so_long->player.player_moves);
 	b = ft_itoa(so_long->player.collect_num);
 	moves = ft_strjoin("Numero de movimientos: ", a);
-	printf("Se ha movido %s veces\n", moves);
+	//printf("Se ha movido %s veces\n", moves);
 	collecti = ft_strjoin("Numero de coleccionables: ", b);
 		mlx_string_put(so_long->mlx_data.mlx_ptr,
 		so_long->mlx_data.win_ptr, 64, 64, 0xFFFFFF, moves);
@@ -60,12 +60,16 @@ void	render_move(t_so_long *so_long, int sprite_type)
 
 void	move_player(t_so_long *so_long, int new_x, int new_y, int sprite_type)
 {
+	static int	moves;
+	
 	if (so_long->map[new_y][new_x] != '1')
 	{
 		create_cover(so_long, COVER);
 		so_long->player.x = new_x;
 		so_long->player.y = new_y;
 		render_move(so_long, sprite_type);
+		moves++;
+		printf("Se ha movido %d veces\n", moves);
 	}
 }
 
