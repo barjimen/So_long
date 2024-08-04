@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.c                                            :+:      :+:    :+:   */
+/*   hooks_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/30 23:59:52 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/04 21:56:35 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,19 @@ void	create_cover(void	*data, int sprite_type)
 		* 32 + (32 * so_long->player.x));
 }
 
-void	render_move(t_so_long *so_long, int sprite_type)
+void	put_text(t_so_long *so_long)
 {
-	char	*moves;
+		char	*moves;
 	char	*collecti;
 	char	*a;
 	char	*b;
 
 	a = ft_itoa(so_long->player.player_moves);
 	b = ft_itoa(so_long->player.collect_num);
-	so_long->player.player_moves += 1;
 	moves = ft_strjoin("Numero de movimientos: ", a);
-	collecti = ft_strjoin("Numero de coleccionables: ", b);
 	printf("Se ha movido %s veces\n", moves);
-	item_removed(so_long);
-	map_iter_context(so_long->map, create_items, so_long);
-	create_player(so_long, sprite_type);
-	mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,
-		so_long->mlx_data.win_ptr, so_long->mlx_data.img.ptr, 0, 0);
-	mlx_string_put(so_long->mlx_data.mlx_ptr,
+	collecti = ft_strjoin("Numero de coleccionables: ", b);
+		mlx_string_put(so_long->mlx_data.mlx_ptr,
 		so_long->mlx_data.win_ptr, 64, 64, 0xFFFFFF, moves);
 	mlx_string_put(so_long->mlx_data.mlx_ptr,
 		so_long->mlx_data.win_ptr, 64, 128, 0xFFFFFF, collecti);	
@@ -50,6 +44,18 @@ void	render_move(t_so_long *so_long, int sprite_type)
 	free(collecti);
 	free(a);
 	free(b);
+}
+
+void	render_move(t_so_long *so_long, int sprite_type)
+{
+
+	so_long->player.player_moves += 1;
+	item_removed(so_long);
+	map_iter_context(so_long->map, create_items, so_long);
+	create_player(so_long, sprite_type);
+	mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,
+		so_long->mlx_data.win_ptr, so_long->mlx_data.img.ptr, 0, 0);
+	put_text(so_long);
 }
 
 void	move_player(t_so_long *so_long, int new_x, int new_y, int sprite_type)

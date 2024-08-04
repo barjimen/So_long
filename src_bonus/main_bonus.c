@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 23:20:58 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/01 23:21:01 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/04 22:05:33 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,24 @@ int	exit_msg(char *msg)
 	ft_putendl_fd(msg, 2);
 	exit(EXIT_SUCCESS);
 }
+
+int	hook_animate(void *data)
+{
+	t_so_long *so_long = (t_so_long *)data;
+	so_long->time++;
+	if (so_long->time & 16384 && !(so_long->player.x == so_long->e_pos.x && so_long->player.y == so_long->e_pos.y))
+	{
+		if (so_long->player.collect_num == so_long->maps.c)
+			create_anim(so_long, &so_long->exit_open,so_long->w_offset + so_long->e_pos.x * 64 - (64 * so_long->e_pos.y), so_long->h_offset + so_long->e_pos.y * 32 + (32 * so_long->e_pos.x));
+		else
+			create_anim(so_long, &so_long->exit_close,so_long->w_offset + so_long->e_pos.x * 64 - (64 * so_long->e_pos.y), so_long->h_offset + so_long->e_pos.y * 32 + (32 * so_long->e_pos.x));
+		mlx_put_image_to_window(so_long->mlx_data.mlx_ptr, so_long->mlx_data.win_ptr, so_long->mlx_data.img.ptr, 0, 0);
+		put_text(so_long);
+		so_long->time = 0;
+	}
+	return (1);
+}
+
 
 int	main(int argc, char **argv)
 {
@@ -33,7 +51,11 @@ int	main(int argc, char **argv)
 	so_long.map = load_map(argv[1]);
 	offset_calculator(&so_long);
 	render_map(&so_long);
+	printf("A\n");
+	mlx_loop_hook(so_long.mlx_data.mlx_ptr, hook_animate, &so_long);
+	printf("B\n");
 	mlx_key_hook(so_long.mlx_data.win_ptr, key_hook, &so_long);
-	mlx_hook(so_long.mlx_data.win_ptr, 17, 0, close_w, &so_long.mlx_data);
+	printf("C\n");
+	// mlx_hook(so_long.mlx_data.win_ptr, 17, 0, close_w, &so_long.mlx_data);
 	mlx_loop(so_long.mlx_data.mlx_ptr);
 }

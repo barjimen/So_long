@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 23:31:39 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/03 16:02:34 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/04 21:48:33 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,11 @@ void	is_char(void *data, int x, int y)
 		so_long->player.y = y;
 	}
 	else if (so_long->map[y][x] == 'E')
+	{
 		so_long->maps.e++;
-	//else if (so_long->map[y][x] == 'X')
-		//exit_msg("You die!");	
+		so_long->e_pos.x = x;
+		so_long->e_pos.y = y;
+	}
 }
 
 void	map_iter_context(char **map, void (*f)(void *, int x, int y),

@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/04 20:51:41 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/04 21:56:41 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,12 @@ typedef struct s_anim
 	int max;
 } t_anim;
 
+typedef struct s_pos
+{
+	int			x;
+	int			y;
+}	t_pos;
+
 typedef struct s_data
 {
 	void		*mlx_ptr; // MLX pointer
@@ -91,6 +97,8 @@ typedef struct s_so_long
 	int			h_offset;
 	int			w_offset;
 	
+	int			time;
+	t_pos		e_pos;
 	t_anim		exit_close;
 	t_anim		exit_open;
 	t_map		maps;
@@ -129,6 +137,8 @@ int 	check_all_img(void);
 void	create_enemy(void	*data, int x, int y);
 void	images_load(t_so_long *mlx, t_anim *images, char *file, int frames);
 void create_anim(t_so_long *mlx, t_anim *images, int x, int y);
+void	render_move(t_so_long *so_long, int sprite_type);
+void	put_text(t_so_long *so_long);
 
 //Hooks
 int	exit_msg(char *msg);

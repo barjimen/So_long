@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:10:40 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/04 21:14:11 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/04 21:58:47 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ void	create_items(void	*data, int x, int y)
 			so_long->mlx_data.sprites[COLLECT],
 			so_long->w_offset + x * 64 - (64 * y),
 			so_long->h_offset + y * 32 + (32 * x));
-	else if (so_long->map[y][x] == 'E' &&
+	/* else if (so_long->map[y][x] == 'E' &&
 		so_long->player.collect_num != so_long->maps.c)
-		create_anim(so_long, &so_long->exit_close,so_long->w_offset + x * 64 - (64 * y), so_long->h_offset + y * 32 + (32 * x));
+		create_anim(so_long, &so_long->exit_close,so_long->w_offset + x * 64 - (64 * y), so_long->h_offset + y * 32 + (32 * x)); */
 		
-	else if (so_long->player.collect_num == so_long->maps.c
+	/* else if (so_long->player.collect_num == so_long->maps.c
 		&& so_long->map[y][x] == 'E')
-		create_anim(so_long, &so_long->exit_open,so_long->w_offset + x * 64 - (64 * y), so_long->h_offset + y * 32 + (32 * x));
+		create_anim(so_long, &so_long->exit_open,so_long->w_offset + x * 64 - (64 * y), so_long->h_offset + y * 32 + (32 * x)); */
 }
 
 void	create_player(void	*data, int sprite_type)
