@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:13:57 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 21:42:40 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/08 22:45:13 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,22 +88,4 @@ char	*map_check(t_so_long *so_long)
 	so_long->map_w = width;
 	window_size_calculator(so_long);
 	return (0);
-}
-
-void	item_removed(t_so_long	*so_long)
-{
-	if (so_long->map[so_long->player.y][so_long->player.x] == 'C')
-	{
-		so_long->player.collect_num++;
-		printf("Tienes un total de coleccionables: %d\n",
-			so_long->player.collect_num);
-		so_long->map[so_long->player.y][so_long->player.x] = '0';
-	}
-	if (so_long->player.collect_num == so_long->maps.c
-		&& so_long->map[so_long->player.y][so_long->player.x] == 'E')
-	{
-		mlx_destroy_window(so_long->mlx_data.mlx_ptr,
-			so_long->mlx_data.win_ptr);
-		exit_msg(WIN);
-	}
 }

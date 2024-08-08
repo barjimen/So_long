@@ -6,10 +6,9 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 21:47:08 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/08 23:30:26 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
@@ -26,7 +25,8 @@
 # include <unistd.h>
 # include <math.h>
 
-typedef enum e_sprites {
+typedef enum e_sprites
+{
 	FLOOR,
 	PLAYER_UP,
 	PLAYER_DOWN,
@@ -38,25 +38,26 @@ typedef enum e_sprites {
 	EXIT_OK_1,
 	ENEMY,
 	COVER
-} t_sprites;
+}	t_sprites;
 
-typedef struct s_img {
+typedef struct s_img
+{
 	void	*ptr;
 	char	*addr;
 	int		bppx;
 	int		line_length;
 	int		endian;
-	int     width;
-    int     height;
+	int		width;
+	int		height;
 }				t_img;
 
 typedef struct s_anim
 {
-	t_img *images;
-	char *file;
-	int frame;
-	int max;
-} t_anim;
+	t_img	*images;
+	char	*file;
+	int		frame;
+	int		max;
+}	t_anim;
 
 typedef struct s_pos
 {
@@ -66,63 +67,62 @@ typedef struct s_pos
 
 typedef struct s_data
 {
-	void		*mlx_ptr; // MLX pointer
-	void		*win_ptr; // MLX window pointer
-	t_img		sprites[17]; // MLX image pointers (on the stack)
-	t_img		img; //TODO: background
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_img		sprites[17];
+	t_img		img;
 }	t_data;
 
 typedef struct s_player
 {
-	int x;
-	int y;
-	int player_moves;
-	int	collect_num;
-} t_player;
+	int		x;
+	int		y;
+	int		player_moves;
+	int		collect_num;
+}	t_player;
 
 typedef struct s_map
 {
-	int c;
-	int p;
-	int e;
-	int width;
-	int height;
-} t_map;
+	int		c;
+	int		p;
+	int		e;
+	int		width;
+	int		height;
+}	t_map;
 
 typedef struct s_so_long
 {
 	char		**map;
 	int			map_h;
-	int 		map_w;
+	int			map_w;
 	int			h_offset;
 	int			w_offset;
 	int			window_w;
 	int			window_h;
-	int			time;
-	
+	int			time;	
 	t_pos		e_pos;
 	t_anim		exit_close;
 	t_anim		exit_open;
 	t_map		maps;
 	t_player	player;
-	t_data 		mlx_data;
-	
+	t_data		mlx_data;
+
 }	t_so_long;
 
-
-void	arg_handler(int argc, char **argv);
-char	*map_check(t_so_long *so_long);
-void 	map_iter_context(char **map, void (*f)(void *, int x, int y), void *data);
-void 	is_char(void *data, int x, int y);
-void 	is_map_valid(void *data, int x, int y);
-void 	is_valid_e_c(void *data, int x, int y);
-void	render_map(t_so_long    *so_long);
-int 	length_map(char **map);
-int		height_map(char **map);
-void	paint_map(int width, int height, char *img, t_so_long *so_long);
-char	**load_map(char *path);
-void    offset_calculator(t_so_long *so_long);
-void	window_size_calculator(t_so_long	*so_long);
+void			arg_handler(int argc, char **argv);
+char			*map_check(t_so_long *so_long);
+void			map_iter_context(char **map,
+					void (*f)(void *, int x, int y), void *data);
+void			is_char(void *data, int x, int y);
+void			is_map_valid(void *data, int x, int y);
+void			is_valid_e_c(void *data, int x, int y);
+void			render_map(t_so_long *so_long);
+int				length_map(char **map);
+int				height_map(char **map);
+void			paint_map(int width, int height, char *img, t_so_long *so_long);
+char			**load_map(char *path);
+void			offset_calculator(t_so_long *so_long);
+void			window_size_calculator(t_so_long	*so_long);
 
 /* Image Handle */
 void			put_pixel_img(t_img img, int x, int y, int color);
@@ -131,27 +131,30 @@ unsigned int	get_pixel_img(t_img img, int x, int y);
 void			put_img_to_img(t_img dst, t_img src, int x, int y);
 t_img			load_xpm(void *mlx, char *path);
 
-void	create_background(void	*data, int x, int y);
-void	 item_removed(t_so_long	*so_long);
-void	create_items(void	*data, int x, int y);
-void	create_player(void	*data, int x);
-int 	check_all_img(void);
-void	create_enemy(void	*data, int x, int y);
-void	images_load(t_so_long *mlx, t_anim *images, char *file, int frames);
-void create_anim(t_so_long *mlx, t_anim *images, int x, int y);
-void	render_move(t_so_long *so_long, int sprite_type);
-void	put_text(t_so_long *so_long);
-int	hook_animate(void *data);
-void create_anim(t_so_long *so_long, t_anim *anim, int x, int y);
-void	images_load(t_so_long *so_long, t_anim *anim, char *file, int frames);
+void			create_background(void	*data, int x, int y);
+void			item_removed(t_so_long	*so_long);
+void			create_items(void	*data, int x, int y);
+void			create_player(void	*data, int x);
+int				check_all_img(void);
+void			create_enemy(void	*data, int x, int y);
+void			images_load(t_so_long *mlx, t_anim *images,
+					char *file, int frames);
+void			create_anim(t_so_long *mlx, t_anim *images, int x, int y);
+void			render_move(t_so_long *so_long, int sprite_type);
+void			put_text(t_so_long *so_long);
+int				hook_animate(void *data);
+void			create_anim(t_so_long *so_long, t_anim *anim, int x, int y);
+void			images_load(t_so_long *so_long, t_anim *anim,
+					char *file, int frames);
+void			create_cover(void	*data, int sprite_type);
 
 //Hooks
-int	exit_msg(char *msg);
-int close_w(t_data *mlx);
-int	key_hook(int keycode, t_so_long *so_long);
+int				exit_msg(char *msg);
+int				close_w(t_data *mlx);
+int				key_hook(int keycode, t_so_long *so_long);
 
 // To library
-int	ft_str_end_with(const char *str, const char *end);
+int				ft_str_end_with(const char *str, const char *end);
 
 //-- Error msg --
 # define FD_0 "FD error!"
@@ -164,12 +167,14 @@ int	ft_str_end_with(const char *str, const char *end);
 # define MAP_H_KO "Height not valid!"
 # define MAP_W_KO "Width not valid!"
 # define MAP_LENGHT_KO "Different lenght lines!"
-# define MAP_LIMIT ""
 # define IMG_KO "Image missing!!!"
 //-- Map checker error msg --
 # define CPE_MSG "C,P or E error!"
 # define C_MSG "Can't reach C!"
 # define E_MSG "Can't reach E!"
+# define WIDTH_MAX_ERROR "The map is too wide!"
+# define HEIGHT_MAX_ERROR "The map is too tall!"
+
 //-- Close window --
 # define C_WINDOW "Bye!"
 # define WIN 	  "You win!"
@@ -189,8 +194,6 @@ int	ft_str_end_with(const char *str, const char *end);
 # define ENEMY_SRC "./img/enemy_1.xpm"
 
 //-- Others
-# define MSG_GUIDE "Los controles son: AWSD o Flechas para moverte."
-
 # define MAX_WIN_W	3840
 # define MAX_WIN_H	1980
 #endif

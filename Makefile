@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 20:29:52 by barjimen          #+#    #+#              #
-#    Updated: 2024/08/08 20:38:38 by barjimen         ###   ########.fr        #
+#    Updated: 2024/08/08 22:59:39 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,22 +87,26 @@ OBJF			=		.cache_exists_c
 OBJF_B			=		.cache_exists_c_b
 
 #---------------------------------- Second Part ----------------------------------
-all:	makelibs $(MLX)
+default:	
 			@$(MAKE) $(NAME) 
+			
+all:	
+		@$(MAKE) $(NAME)
+		@$(MAKE) $(NAME_B)
 
 makelibs:
 			@$(MAKE) -C $(LFT_DIR)
 			@$(MAKE) -C $(MLX_DIR)
 
 -include	${DEPS}
-$(NAME):	$(OBJ)
+$(NAME):	$(OBJ) makelibs $(mlx)
 			@$(CC) $(CFLAGS) $(OBJ) $(MLXCC) $(LIBFT) -o $(NAME) 
 
 bonus:
 			@$(MAKE) $(NAME_B)
 
 -include	${DEPS_B}
-$(NAME_B):	$(OBJ_B) makelibs
+$(NAME_B):	$(OBJ_B) makelibs $(mlx)
 			@$(CC) $(CFLAGS) $(OBJ_B) $(MLXCC) $(LIBFT) -o $(NAME_B)
 
 $(OBJ_DIR_B)%.o:	$(BONUS_DIR)%.c $(INCS) | $(OBJF_B)
@@ -137,8 +141,8 @@ re:			fclean
 			@$(MAKE)
 
 norminette:
-			@norminette $(SRC) $(INCLUDE) | grep -v Norme -B1 || true
+			@norminette $(SRC) $(BONUS_DIR) $(INCLUDE) | grep -v Norme -B1 || true
 			@norminette $(INC_DIR) | grep -v Norme -B1 || true
 
-PHONY: all makelibs bonus clean fclean re norminette
+PHONY: default all makelibs bonus clean fclean re norminette
 

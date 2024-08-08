@@ -6,14 +6,14 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:38:36 by barjimen          #+#    #+#             */
-/*   Updated: 2023/08/23 14:00:09 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/08 23:38:28 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int	ft_putstr(char *str)
-{	
+{
 	int	i;
 
 	i = 0;

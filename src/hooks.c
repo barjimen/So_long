@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 21:41:28 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/08 23:18:48 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	render_move(t_so_long *so_long, int sprite_type)
 	mlx_string_put(so_long->mlx_data.mlx_ptr,
 		so_long->mlx_data.win_ptr, 64, 64, 0xFFFFFF, moves);
 	mlx_string_put(so_long->mlx_data.mlx_ptr,
-		so_long->mlx_data.win_ptr, 64, 128, 0xFFFFFF, collecti);	
+		so_long->mlx_data.win_ptr, 64, 128, 0xFFFFFF, collecti);
 	free(moves);
 	free(collecti);
 	free(a);

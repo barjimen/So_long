@@ -6,27 +6,15 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 21:17:50 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/08 23:24:32 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	create_cover(void	*data, int sprite_type)
-{
-	t_so_long	*so_long;
-
-	so_long = (t_so_long *)data;
-	put_img_to_img(so_long->mlx_data.img,
-		so_long->mlx_data.sprites[sprite_type], so_long->w_offset
-		+ so_long->player.x * 64 - (64 * so_long->player.y),
-		so_long->h_offset + so_long->player.y
-		* 32 + (32 * so_long->player.x));
-}
-
 void	put_text(t_so_long *so_long)
 {
-		char	*moves;
+	char	*moves;
 	char	*collecti;
 	char	*a;
 	char	*b;
@@ -38,7 +26,7 @@ void	put_text(t_so_long *so_long)
 	mlx_string_put(so_long->mlx_data.mlx_ptr,
 		so_long->mlx_data.win_ptr, 64, 64, 0xFFFFFF, moves);
 	mlx_string_put(so_long->mlx_data.mlx_ptr,
-		so_long->mlx_data.win_ptr, 64, 128, 0xFFFFFF, collecti);	
+		so_long->mlx_data.win_ptr, 64, 128, 0xFFFFFF, collecti);
 	free(moves);
 	free(collecti);
 	free(a);
@@ -47,7 +35,6 @@ void	put_text(t_so_long *so_long)
 
 void	render_move(t_so_long *so_long, int sprite_type)
 {
-
 	so_long->player.player_moves += 1;
 	item_removed(so_long);
 	map_iter_context(so_long->map, create_items, so_long);
@@ -60,7 +47,7 @@ void	render_move(t_so_long *so_long, int sprite_type)
 void	move_player(t_so_long *so_long, int new_x, int new_y, int sprite_type)
 {
 	static int	moves;
-	
+
 	if (so_long->map[new_y][new_x] != '1')
 	{
 		create_cover(so_long, COVER);

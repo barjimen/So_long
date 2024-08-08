@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 20:36:31 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 20:37:16 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/08 23:30:01 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	images_load(t_so_long *so_long, t_anim *anim, char *file, int frames)
 	}
 }
 
-void create_anim(t_so_long *so_long, t_anim *anim, int x, int y)
+void	create_anim(t_so_long *so_long, t_anim *anim, int x, int y)
 {
-    put_img_to_img(so_long->mlx_data.img,
+	put_img_to_img(so_long->mlx_data.img,
 		anim->images[anim->frame], x, y);
 	if (anim->frame < anim->max)
 		anim->frame++;
@@ -44,15 +44,25 @@ void create_anim(t_so_long *so_long, t_anim *anim, int x, int y)
 
 int	hook_animate(void *data)
 {
-	t_so_long *so_long = (t_so_long *)data;
+	t_so_long	*so_long;
+
+	so_long = (t_so_long *)data;
 	so_long->time++;
-	if (so_long->time & 16384 && !(so_long->player.x == so_long->e_pos.x && so_long->player.y == so_long->e_pos.y))
+	if (so_long->time & 16384 && !(so_long->player.x == so_long->e_pos.x
+			&& so_long->player.y == so_long->e_pos.y))
 	{
 		if (so_long->player.collect_num == so_long->maps.c)
-			create_anim(so_long, &so_long->exit_open,so_long->w_offset + so_long->e_pos.x * 64 - (64 * so_long->e_pos.y), so_long->h_offset + so_long->e_pos.y * 32 + (32 * so_long->e_pos.x));
+			create_anim(so_long, &so_long->exit_open, so_long->w_offset
+				+ so_long->e_pos.x * 64 - (64 * so_long->e_pos.y),
+				so_long->h_offset + so_long->e_pos.y * 32
+				+ (32 * so_long->e_pos.x));
 		else
-			create_anim(so_long, &so_long->exit_close,so_long->w_offset + so_long->e_pos.x * 64 - (64 * so_long->e_pos.y), so_long->h_offset + so_long->e_pos.y * 32 + (32 * so_long->e_pos.x));
-		mlx_put_image_to_window(so_long->mlx_data.mlx_ptr, so_long->mlx_data.win_ptr, so_long->mlx_data.img.ptr, 0, 0);
+			create_anim(so_long, &so_long->exit_close, so_long->w_offset
+				+ so_long->e_pos.x * 64 - (64 * so_long->e_pos.y),
+				so_long->h_offset + so_long->e_pos.y * 32
+				+ (32 * so_long->e_pos.x));
+		mlx_put_image_to_window(so_long->mlx_data.mlx_ptr,
+			so_long->mlx_data.win_ptr, so_long->mlx_data.img.ptr, 0, 0);
 		put_text(so_long);
 		so_long->time = 0;
 	}
