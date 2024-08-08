@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 14:06:42 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/16 23:20:11 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/08 20:40:36 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <string.h>
 # include <limits.h>
 # include <ctype.h>
+# include "ft_printf.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

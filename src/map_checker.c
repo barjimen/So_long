@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:13:57 by barjimen          #+#    #+#             */
-/*   Updated: 2024/07/16 20:55:08 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/08 21:42:40 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	is_walled(char **map, int width, int height)
 		{
 			if (map[i][j] != '1' && (i == 0 || j == 0
 				|| i == height - 1 || j == width - 1))
-				printf("no es 1\n");
+				exit_msg(MAP_KO_1);
 			if (map[i][j] != '1' && map[i][j] != '0'
 				&& map[i][j] != 'C' && map[i][j] != 'E' && map[i][j] != 'P')
 				exit_msg(MAP_CHAR_KO);
@@ -86,6 +86,7 @@ char	*map_check(t_so_long *so_long)
 	map_iter_context(so_long->map, is_valid_e_c, so_long);
 	so_long->map_h = height;
 	so_long->map_w = width;
+	window_size_calculator(so_long);
 	return (0);
 }
 

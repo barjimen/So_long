@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_x_or_X.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 18:59:32 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 21:36:46 by barjimen         ###   ########.fr       */
+/*   Created: 2023/07/13 21:05:35 by barjimen          #+#    #+#             */
+/*   Updated: 2023/08/23 13:59:58 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf.h" 
 
-int	ft_x_or_X(char x, unsigned long int nb)
+int	ft_putchar(int c)
 {
-	if (x == 'x')
-		return (ft_hexa(nb, "0123456789abcdef"));
-	else if (x == 'X')
-		return (ft_hexa(nb, "0123456789ABCDEF"));
-	return (0);
+	return (write(1, &c, 1));
 }

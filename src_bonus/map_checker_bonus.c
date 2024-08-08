@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:13:57 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/03 16:21:28 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/08 21:30:53 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	is_walled(char **map, int width, int height)
 		{
 			if (map[i][j] != '1' && (i == 0 || j == 0
 				|| i == height - 1 || j == width - 1))
-				printf("no es 1\n");
+				exit_msg(MAP_KO_1);
 			if (map[i][j] != '1' && map[i][j] != '0'
 				&& map[i][j] != 'C' && map[i][j] != 'E' && map[i][j] != 'P' && map[i][j] != 'X')
 				exit_msg(MAP_CHAR_KO_B);
@@ -86,6 +86,7 @@ char	*map_check(t_so_long *so_long)
 	map_iter_context(so_long->map, is_valid_e_c, so_long);
 	so_long->map_h = height;
 	so_long->map_w = width;
+	window_size_calculator(so_long);
 	return (0);
 }
 
@@ -94,7 +95,7 @@ void	item_removed(t_so_long	*so_long)
 	if (so_long->map[so_long->player.y][so_long->player.x] == 'C')
 	{
 		so_long->player.collect_num++;
-		printf("Tienes un total de coleccionables: %d\n",
+		ft_printf("Tienes un total de coleccionables: %d\n",
 			so_long->player.collect_num);
 		so_long->map[so_long->player.y][so_long->player.x] = '0';
 	}

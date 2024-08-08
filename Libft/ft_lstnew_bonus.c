@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 20:32:02 by barjimen          #+#    #+#             */
-/*   Updated: 2022/12/28 16:32:54 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/08 21:36:26 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,3 @@ t_list	*ft_lstnew(void *content)
 	memi->next = NULL;
 	return (memi);
 }
-/*
-int	main()
-{
-	t_list	*prueba;
-	prueba = ft_lstnew("hola");
-	printf("%s es el contenido\n", prueba->content);
-}*/

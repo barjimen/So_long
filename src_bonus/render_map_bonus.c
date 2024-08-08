@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:10:40 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/04 21:58:47 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/08 21:17:14 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,6 @@ void	create_items(void	*data, int x, int y)
 			so_long->mlx_data.sprites[COLLECT],
 			so_long->w_offset + x * 64 - (64 * y),
 			so_long->h_offset + y * 32 + (32 * x));
-	/* else if (so_long->map[y][x] == 'E' &&
-		so_long->player.collect_num != so_long->maps.c)
-		create_anim(so_long, &so_long->exit_close,so_long->w_offset + x * 64 - (64 * y), so_long->h_offset + y * 32 + (32 * x)); */
-		
-	/* else if (so_long->player.collect_num == so_long->maps.c
-		&& so_long->map[y][x] == 'E')
-		create_anim(so_long, &so_long->exit_open,so_long->w_offset + x * 64 - (64 * y), so_long->h_offset + y * 32 + (32 * x)); */
 }
 
 void	create_player(void	*data, int sprite_type)
@@ -96,8 +89,8 @@ void	render_map(t_so_long *so_long)
 	data = &so_long->mlx_data;
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr,
-			W_SIZE, H_SIZE, "So_Long by Barjimen");
-	data->img = create_image(data->mlx_ptr, W_SIZE, H_SIZE);
+			so_long->window_w, so_long->window_h, "So_Long by Barjimen");
+	data->img = create_image(data->mlx_ptr, so_long->window_w, so_long->window_h);
 	load_sprites(so_long);
 	map_iter_context(so_long->map, create_background, so_long);
 	map_iter_context(so_long->map, create_items, so_long);
@@ -105,5 +98,4 @@ void	render_map(t_so_long *so_long)
 	create_player(so_long, PLAYER_DOWN);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.ptr, 0, 0);
 	mlx_set_font(so_long->mlx_data.mlx_ptr, so_long->mlx_data.win_ptr, "12x24romankana");
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 250, 0xFFFFFF, MSG_GUIDE);
 }

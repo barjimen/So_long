@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_x_or_X.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 18:59:32 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 21:36:46 by barjimen         ###   ########.fr       */
+/*   Created: 2023/08/11 11:38:36 by barjimen          #+#    #+#             */
+/*   Updated: 2023/08/23 14:00:09 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_x_or_X(char x, unsigned long int nb)
-{
-	if (x == 'x')
-		return (ft_hexa(nb, "0123456789abcdef"));
-	else if (x == 'X')
-		return (ft_hexa(nb, "0123456789ABCDEF"));
-	return (0);
+int	ft_putstr(char *str)
+{	
+	int	i;
+
+	i = 0;
+	if (!str)
+	{
+		write (1, "(null)", 6);
+		return (6);
+	}
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/04 21:56:41 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/08 21:47:08 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,10 @@ typedef struct s_so_long
 	int 		map_w;
 	int			h_offset;
 	int			w_offset;
-	
+	int			window_w;
+	int			window_h;
 	int			time;
+	
 	t_pos		e_pos;
 	t_anim		exit_close;
 	t_anim		exit_open;
@@ -120,7 +122,7 @@ int		height_map(char **map);
 void	paint_map(int width, int height, char *img, t_so_long *so_long);
 char	**load_map(char *path);
 void    offset_calculator(t_so_long *so_long);
-
+void	window_size_calculator(t_so_long	*so_long);
 
 /* Image Handle */
 void			put_pixel_img(t_img img, int x, int y, int color);
@@ -139,6 +141,9 @@ void	images_load(t_so_long *mlx, t_anim *images, char *file, int frames);
 void create_anim(t_so_long *mlx, t_anim *images, int x, int y);
 void	render_move(t_so_long *so_long, int sprite_type);
 void	put_text(t_so_long *so_long);
+int	hook_animate(void *data);
+void create_anim(t_so_long *so_long, t_anim *anim, int x, int y);
+void	images_load(t_so_long *so_long, t_anim *anim, char *file, int frames);
 
 //Hooks
 int	exit_msg(char *msg);
@@ -148,21 +153,18 @@ int	key_hook(int keycode, t_so_long *so_long);
 // To library
 int	ft_str_end_with(const char *str, const char *end);
 
-//-- Window and other things
-
-# define W_SIZE 3840
-# define H_SIZE 1980
-
 //-- Error msg --
 # define FD_0 "FD error!"
 # define NOT_BER "File needs to be .ber!"
 # define ARG_KO "To much arguments!"
 # define MAP_KO "Invalid map!"
+# define MAP_KO_1 "Wall error!"
 # define MAP_CHAR_KO "Only valid 1,0,C,P,E"
 # define MAP_CHAR_KO_B "Only valid 1,0,C,P,E and X"
 # define MAP_H_KO "Height not valid!"
 # define MAP_W_KO "Width not valid!"
 # define MAP_LENGHT_KO "Different lenght lines!"
+# define MAP_LIMIT ""
 # define IMG_KO "Image missing!!!"
 //-- Map checker error msg --
 # define CPE_MSG "C,P or E error!"
@@ -189,4 +191,6 @@ int	ft_str_end_with(const char *str, const char *end);
 //-- Others
 # define MSG_GUIDE "Los controles son: AWSD o Flechas para moverte."
 
+# define MAX_WIN_W	3840
+# define MAX_WIN_H	1980
 #endif

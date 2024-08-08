@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 20:29:52 by barjimen          #+#    #+#              #
-#    Updated: 2024/08/02 00:18:39 by barjimen         ###   ########.fr        #
+#    Updated: 2024/08/08 20:38:38 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,7 @@
 							ft_str_end_with_bonus		\
 							check_things_bonus			\
 							offset_calculator_bonus		\
+							animation_bonus				\
 							
 
 #--- File variables
