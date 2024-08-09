@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 23:18:48 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/09 20:50:31 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	render_move(t_so_long *so_long, int sprite_type)
 	a = ft_itoa(so_long->player.player_moves);
 	b = ft_itoa(so_long->player.collect_num);
 	so_long->player.player_moves += 1;
-	moves = ft_strjoin("Numero de movimientos: ", a);
-	collecti = ft_strjoin("Numero de coleccionables: ", b);
-	ft_printf("Se ha movido %s veces\n", moves);
+	moves = ft_strjoin("Moves: ", a);
+	collecti = ft_strjoin("C ", b);
+	ft_printf("Moves: %s\n", moves);
 	item_removed(so_long);
 	map_iter_context(so_long->map, create_items, so_long);
 	create_player(so_long, sprite_type);

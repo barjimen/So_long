@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 23:24:32 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/09 20:50:58 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	put_text(t_so_long *so_long)
 
 	a = ft_itoa(so_long->player.player_moves);
 	b = ft_itoa(so_long->player.collect_num);
-	moves = ft_strjoin("Numero de movimientos: ", a);
-	collecti = ft_strjoin("Numero de coleccionables: ", b);
+	moves = ft_strjoin("Moves: ", a);
+	collecti = ft_strjoin("C: ", b);
 	mlx_string_put(so_long->mlx_data.mlx_ptr,
-		so_long->mlx_data.win_ptr, 64, 64, 0xFFFFFF, moves);
+		so_long->mlx_data.win_ptr, 32, 32, 0xFFFFFF, moves);
 	mlx_string_put(so_long->mlx_data.mlx_ptr,
-		so_long->mlx_data.win_ptr, 64, 128, 0xFFFFFF, collecti);
+		so_long->mlx_data.win_ptr, so_long->window_w - 80, 32, 0xFFFFFF, collecti);
 	free(moves);
 	free(collecti);
 	free(a);
@@ -35,6 +35,7 @@ void	put_text(t_so_long *so_long)
 
 void	render_move(t_so_long *so_long, int sprite_type)
 {
+
 	so_long->player.player_moves += 1;
 	item_removed(so_long);
 	map_iter_context(so_long->map, create_items, so_long);
@@ -55,7 +56,7 @@ void	move_player(t_so_long *so_long, int new_x, int new_y, int sprite_type)
 		so_long->player.y = new_y;
 		render_move(so_long, sprite_type);
 		moves++;
-		ft_printf("Se ha movido %d veces\n", moves);
+		ft_printf("Moves: %d \n", moves);
 	}
 }
 

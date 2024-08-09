@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 20:18:26 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 23:18:09 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/09 20:57:52 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	item_removed(t_so_long	*so_long)
 	if (so_long->player.collect_num == so_long->maps.c
 		&& so_long->map[so_long->player.y][so_long->player.x] == 'E')
 	{
+		ft_printf("Moves: %d \n", so_long->player.player_moves);
 		mlx_destroy_window(so_long->mlx_data.mlx_ptr,
 			so_long->mlx_data.win_ptr);
 		exit_msg(WIN);

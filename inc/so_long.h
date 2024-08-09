@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 20:37:10 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 23:30:26 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/09 20:45:07 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,7 @@ int				ft_str_end_with(const char *str, const char *end);
 //-- Error msg --
 # define FD_0 "FD error!"
 # define NOT_BER "File needs to be .ber!"
-# define ARG_KO "To much arguments!"
+# define ARG_KO "Only valid 2 arguments, ./so_long and map :)"
 # define MAP_KO "Invalid map!"
 # define MAP_KO_1 "Wall error!"
 # define MAP_CHAR_KO "Only valid 1,0,C,P,E"
