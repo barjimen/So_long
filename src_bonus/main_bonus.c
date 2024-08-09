@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 23:20:58 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 20:37:28 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/09 22:01:18 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	exit_msg(char *msg)
 {
+	ft_putendl_fd("Error\n", 2);
 	ft_putendl_fd(msg, 2);
 	exit(EXIT_SUCCESS);
 }
