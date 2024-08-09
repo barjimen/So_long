@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 23:26:47 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/09 20:50:58 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/09 21:13:18 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	put_text(t_so_long *so_long)
 	mlx_string_put(so_long->mlx_data.mlx_ptr,
 		so_long->mlx_data.win_ptr, 32, 32, 0xFFFFFF, moves);
 	mlx_string_put(so_long->mlx_data.mlx_ptr,
-		so_long->mlx_data.win_ptr, so_long->window_w - 80, 32, 0xFFFFFF, collecti);
+		so_long->mlx_data.win_ptr, so_long->window_w - 80,
+		32, 0xFFFFFF, collecti);
 	free(moves);
 	free(collecti);
 	free(a);
@@ -35,7 +36,6 @@ void	put_text(t_so_long *so_long)
 
 void	render_move(t_so_long *so_long, int sprite_type)
 {
-
 	so_long->player.player_moves += 1;
 	item_removed(so_long);
 	map_iter_context(so_long->map, create_items, so_long);

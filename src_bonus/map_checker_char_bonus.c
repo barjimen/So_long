@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 23:31:39 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 22:44:39 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/09 21:12:28 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 void	fill_map(char **map, int width, int height)
 {
 	map[height][width] = 'P';
-	if (map[height + 1][width] != '1' && map[height + 1][width] != 'P')
+	if (map[height + 1][width] != '1' && map[height + 1][width] != 'P'
+			&& map[height + 1][width] != 'X')
 		fill_map(map, width, height + 1);
-	if (map[height - 1][width] != '1' && map[height - 1][width] != 'P')
+	if (map[height - 1][width] != '1' && map[height - 1][width] != 'P'
+			&& map[height - 1][width] != 'X')
 		fill_map(map, width, height - 1);
-	if (map[height][width + 1] != '1' && map[height][width + 1] != 'P')
+	if (map[height][width + 1] != '1' && map[height][width + 1] != 'P'
+			&& map[height][width + 1] != 'X')
 		fill_map(map, width + 1, height);
-	if (map[height][width - 1] != '1' && map[height][width - 1] != 'P')
+	if (map[height][width - 1] != '1' && map[height][width - 1] != 'P'
+			&& map[height][width - 1] != 'X')
 		fill_map(map, width - 1, height);
 }
 

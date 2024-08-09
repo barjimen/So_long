@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 20:18:26 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/09 20:57:17 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/09 21:54:13 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,32 @@ int	img_exist(char *img)
 
 	i = open(img, O_RDONLY);
 	if (i == -1)
-		return (0);
+		exit_msg(IMG_KO);
 	close(i);
 	return (1);
+}
+
+void	anim_img(void)
+{
+	const char	*files_close[] = {
+		"./img/exit/red/00.xpm", "./img/exit/red/01.xpm",
+		"./img/exit/red/02.xpm", "./img/exit/red/03.xpm",
+		"./img/exit/red/04.xpm", "./img/exit/red/05.xpm",
+		"./img/exit/red/06.xpm", "./img/exit/red/07.xpm"};
+	const char	*files_open[] = {
+		"./img/exit/00.xpm", "./img/exit/01.xpm",
+		"./img/exit/02.xpm", "./img/exit/03.xpm",
+		"./img/exit/04.xpm", "./img/exit/05.xpm",
+		"./img/exit/06.xpm", "./img/exit/07.xpm"};
+	int			i;
+
+	i = 0;
+	while (i < 8)
+	{
+		img_exist((char *)files_close[i]);
+		img_exist((char *)files_open[i]);
+		i++;
+	}
 }
 
 int	check_all_img(void)
@@ -53,30 +76,6 @@ int	check_all_img(void)
 		|| !img_exist(EXIT_KO_SRC) || !img_exist(EXIT_OK_SRC)
 		|| !img_exist(COLLECT_SRC) || !img_exist(COVER_SRC))
 		return (exit_msg(IMG_KO));
+	anim_img();
 	return (1);
-}
-
-void	item_removed(t_so_long *so_long)
-{
-	if (so_long->map[so_long->player.y][so_long->player.x] == 'C')
-	{
-		so_long->player.collect_num++;
-		ft_printf("You have collect: %d\n",
-			so_long->player.collect_num);
-		so_long->map[so_long->player.y][so_long->player.x] = '0';
-	}
-	if (so_long->player.collect_num == so_long->maps.c
-		&& so_long->map[so_long->player.y][so_long->player.x] == 'E')
-	{
-		ft_printf("Moves: %d \n", so_long->player.player_moves);
-		mlx_destroy_window(so_long->mlx_data.mlx_ptr,
-			so_long->mlx_data.win_ptr);
-		exit_msg(WIN);
-	}
-	if (so_long->map[so_long->player.y][so_long->player.x] == 'X')
-	{
-		mlx_destroy_window(so_long->mlx_data.mlx_ptr,
-			so_long->mlx_data.win_ptr);
-		exit_msg(DEAD);
-	}
 }
