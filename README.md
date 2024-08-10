@@ -10,6 +10,8 @@ working with textures and sprites and some other basic gameplay elements.
 Have you ever wanted to be a roomba? Well this is your chance! 
 Collect the trash and return to your charging station to win the game. In the bonus avoid the enemies that are cats!
 
+**Made it in C and MLX**
+
 ## Screenshots 🎮
 ![image](https://github.com/user-attachments/assets/a39e790d-9749-4130-afcf-01f728b759af)
 ![image](https://github.com/user-attachments/assets/8e90744d-5009-4832-b4af-1e7acb6bd606)
